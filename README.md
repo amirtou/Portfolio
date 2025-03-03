@@ -2,6 +2,10 @@
 
 ![Portfolio Screenshot](/api/placeholder/600/300)
 
+<div style="background-image: url('images/my-image.png'); height: 200px; background-size: cover; display: flex; align-items: center; justify-content: center;">
+  <h2 style="color: white;">Welcome to My Project</h2>
+</div>
+
 ## 🚀 Overview
 
 Welcome to my personal portfolio repository! This project showcases my skills, projects, and professional journey in software development with a focus on computer vision and image processing.
