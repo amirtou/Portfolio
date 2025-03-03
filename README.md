@@ -36,9 +36,4 @@ Image filtering application using Canny Edge detection and Seam Carving algorith
 
 ## 🚀 Getting Started
 
-To view this portfolio locally:
-
-1. Clone the repository
-   ```bash
-   git clone https://github.com/yourusername/portfolio.git
 
