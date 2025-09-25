@@ -1,6 +1,6 @@
 # Personal Portfolio Website
 
-![Portfolio Screenshot]([/api/placeholder/600/300])
+![Portfolio Screenshot](https://lh3.googleusercontent.com/gg-dl/AJfQ9KQauyJq0D40IlaiLVj_fxy2Ey96Z_KbOYb76_8nyk-7ExU5hQDUX36FN0O38ikBpdX3N3lSLhQbRJumqpQ2rEOAsXGArpZZzkYtlXkzR1njllDnBzfHngH1WzQU2u5n7EqlYZONmY1WLIl1IU2EfIZSpJqHexHKAfKZyh_nFbgkNmwFhg=s1024)
 
 
 
