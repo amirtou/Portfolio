@@ -2,7 +2,9 @@
 
 ![Portfolio Screenshot](Images/README.jpg)
 
-## 🚀 Overview
+## Overview
+
+<img src="https://i.pinimg.com/originals/46/41/61/4641611401ecb508c625eebe448da663.gif" width="50">
 
 Welcome to my personal portfolio!  
 This website showcases my projects, technical skills, and background in **Computer Science, Cybersecurity, and Data Analysis**.  
@@ -12,7 +14,7 @@ The goal of this portfolio is to display my work clearly and professionally, esp
 
 ---
 
-## ✅ Features
+## Features
 
 - **Responsive Design** – Works on desktop, tablet, and mobile  
 - **Project Showcase** – Each project includes a description, tools used, and screenshots  
@@ -22,7 +24,7 @@ The goal of this portfolio is to display my work clearly and professionally, esp
 
 ---
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 - **Languages:** HTML5, CSS3, JavaScript  
 - **Design:** Flexbox, Grid, modern responsive layout  
@@ -32,9 +34,9 @@ The goal of this portfolio is to display my work clearly and professionally, esp
 
 ---
 
-## 📂 Project Gallery
+## Project Gallery
 
-### ✅ Power BI Data Dashboard – Customer Spending Analysis
+### Power BI Data Dashboard – Customer Spending Analysis
 A full business-insight dashboard including:
 - Total customers
 - Total spending (3M+)
@@ -50,7 +52,7 @@ This dashboard demonstrates:
 
 ---
 
-### ✅ COVID-19 Vaccination Data Analysis (Python + ML)
+### COVID-19 Vaccination Data Analysis (Python + ML)
 - Analyzed global vaccination metrics across 20 countries  
 - Explored relationship between GDP, healthcare, and mortality  
 - Used clustering to identify similar country vaccination patterns  
@@ -58,7 +60,7 @@ This dashboard demonstrates:
 
 ---
 
-### ✅ Computer Vision: Image Feature Matching
+### Computer Vision: Image Feature Matching
 Implemented feature detection and matching using:
 - **FLANN-Based Matcher**
 - **Harris corner detection**
@@ -68,7 +70,7 @@ Used feature points to map similarities between two images.
 
 ---
 
-### ✅ Image Processing | Edge & Seam Detection
+### Image Processing | Edge & Seam Detection
 Applied:
 - Canny Edge Detection  
 - Seam Carving  
