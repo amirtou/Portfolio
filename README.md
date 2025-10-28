@@ -1,45 +1,88 @@
-# Personal Portfolio Website
+# 🌐 Personal Portfolio Website
 
 ![Portfolio Screenshot](Images/README.jpg)
 
-
-
 ## 🚀 Overview
 
-Welcome to my personal portfolio repository! This project showcases my skills, projects, and professional journey in software development with a focus on computer vision and image processing.
+Welcome to my personal portfolio!  
+This website showcases my projects, technical skills, and background in **Computer Science, Cybersecurity, and Data Analysis**.  
+It is a simple, clean, and responsive website built using HTML, CSS, and basic JavaScript for interactive effects.
 
-## 💻 Features
+The goal of this portfolio is to display my work clearly and professionally, especially for hiring managers and recruiters.
 
-- **Responsive Design**: Mobile-first approach ensuring perfect display across all devices
-- **Project Showcase**: Interactive gallery of my technical projects with live demos
-- **Code Display**: Embedded source code viewers for direct code examination
-- **Skills Section**: Visual representation of my technical expertise
-- **Clean UI**: Minimalist design focused on content and user experience
+---
+
+## ✅ Features
+
+- **Responsive Design** – Works on desktop, tablet, and mobile  
+- **Project Showcase** – Each project includes a description, tools used, and screenshots  
+- **Live Cursor Animation Effect** – Custom JavaScript user-interaction feature  
+- **Clean UI** – Minimalist and easy to navigate  
+- **Hosted on GitHub Pages** – Accessible through a public link
+
+---
 
 ## 🛠️ Technologies Used
 
-- **Frontend**: HTML5, CSS3, JavaScript, Python, C & C++, SQL
-- **CSS Framework**: Custom styling with CSS Grid and Flexbox
-- **Code Highlighting**: Prism.js for syntax highlighting
-- **Interactivity**: Vanilla JavaScript with modern ES6+ features
-- **Version Control**: Git
-- **Deployment**: GitHub Pages
+- **Languages:** HTML5, CSS3, JavaScript  
+- **Design:** Flexbox, Grid, modern responsive layout  
+- **Data Projects:** Python, Power BI, Pandas, SQL  
+- **Version Control:** Git + GitHub  
+- **Hosting:** GitHub Pages
 
-## 📂 Project Structure
+---
 
+## 📂 Project Gallery
 
-## 🔍 Featured Projects
+### ✅ Power BI Data Dashboard – Customer Spending Analysis
+A full business-insight dashboard including:
+- Total customers
+- Total spending (3M+)
+- Average customer income
+- Custom visuals and KPIs
+- Filters and interactive charts
 
-### Computer Vision Image Filtering
-Image filtering application using Canny Edge detection and Seam Carving algorithms implemented in Python. This project demonstrates my understanding of computer vision fundamentals and practical implementation skills.
+This dashboard demonstrates:
+✔ Data cleaning  
+✔ DAX measures  
+✔ Data visualization  
+✔ Business-focused insights  
 
-### Computer Vision 
-I have used FlannBasedMatcher for finding the matching points along them and thresholded it using different values and used Homography as well.
+---
 
+### ✅ COVID-19 Vaccination Data Analysis (Python + ML)
+- Analyzed global vaccination metrics across 20 countries  
+- Explored relationship between GDP, healthcare, and mortality  
+- Used clustering to identify similar country vaccination patterns  
+- Generated graphs and insight summaries
 
-### Data Analysis 
-A machine learning analysis of COVID-19 vaccination patterns across 20 countries, exploring relationships between economic factors, healthcare infrastructure, and mortality rates while identifying distinct country clusters to inform targeted vaccination strategies.
+---
 
-## 🚀 Getting Started
+### ✅ Computer Vision: Image Feature Matching
+Implemented feature detection and matching using:
+- **FLANN-Based Matcher**
+- **Harris corner detection**
+- **Homography transformation**
 
+Used feature points to map similarities between two images.
 
+---
+
+### ✅ Image Processing | Edge & Seam Detection
+Applied:
+- Canny Edge Detection  
+- Seam Carving  
+- Sobel filters  
+
+Showcases understanding of low-level image processing.
+
+---
+
+## 👤 About Me
+- Bachelor’s degree in Computer Science (Data Science)  
+- Experience with programming, data analysis, and front-end development  
+- Strong interest in data visualization, cybersecurity, and software development
+
+---
+
+Thank you for visiting my portfolio!
