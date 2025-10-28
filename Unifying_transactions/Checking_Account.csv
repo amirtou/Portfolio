@@ -1,0 +1,1001 @@
+Transaction_ID,Customer_ID,Transaction_Date,Transaction_Type,Amount,Account_Balance,Branch_City,Channel
+1,1,3/15/2022,Withdrawal,4057,,Berovo,Online
+2,2,9/6/2024,Transfer,3145,,Södertälje,Branch
+3,3,2/8/2023,Transfer,3823,,Shilibu,ATM
+4,4,4/23/2023,Transfer,1912,,Xiadong,Branch
+5,5,2/4/2023,Deposit,633,,Bayan Hure,Branch
+6,6,4/8/2024,Deposit,1755,,Vide,Online
+7,7,1/7/2024,Deposit,1044,,Capanema,Branch
+8,8,8/9/2023,Withdrawal,397,,Kombissiri,ATM
+9,9,5/27/2022,Deposit,4968,,Graz,Branch
+10,10,4/8/2024,Transfer,3495,,Fusagasuga,ATM
+11,11,9/23/2022,Transfer,4836,,Betim,ATM
+12,12,8/4/2023,Deposit,3600,,Ōgaki,ATM
+13,13,10/4/2024,Withdrawal,3540,,Si Bun Rueang,Online
+14,14,12/7/2024,Deposit,4232,,Burtunay,ATM
+15,15,5/11/2023,Withdrawal,3953,,Tracal,ATM
+16,16,1/7/2023,Deposit,4902,,Kikerino,Online
+17,17,12/14/2022,Withdrawal,4836,,Načeradec,Branch
+18,18,8/12/2022,Withdrawal,4285,,Shanhou,Online
+19,19,7/28/2023,Withdrawal,1198,,Bagratashen,ATM
+20,20,4/20/2024,Transfer,4064,,Takayama,Branch
+21,21,10/13/2024,Deposit,4818,,Az Zaytūnīyah,Branch
+22,22,10/7/2022,Withdrawal,4634,,Mexico,Branch
+23,23,1/17/2024,Deposit,1086,,Rymanów,Branch
+24,24,2/1/2024,Transfer,4034,,Ribeirão,Branch
+25,25,9/23/2023,Transfer,1749,,Uzlovaya,ATM
+26,26,7/12/2023,Transfer,786,,Gaojialing,Online
+27,27,10/1/2023,Withdrawal,914,,Yonezawa,Online
+28,28,1/20/2024,Withdrawal,150,,Belang,ATM
+29,29,11/17/2024,Deposit,939,,Guang’an,ATM
+30,30,8/22/2022,Deposit,2965,,Amper,Branch
+31,31,7/26/2024,Transfer,2082,,Libochovice,Branch
+32,32,6/14/2022,Withdrawal,2946,,Mayuge,Branch
+33,33,1/5/2023,Deposit,2493,,Jalalaqsi,Branch
+34,34,11/25/2024,Deposit,4079,,Sayang Lauq,Branch
+35,35,12/4/2024,Deposit,3409,,Strezhevoy,Branch
+36,36,8/22/2022,Deposit,1632,,Ngepoh Kidul,ATM
+37,37,6/21/2023,Withdrawal,2540,,Likhoy,Online
+38,38,9/3/2022,Deposit,4354,,Caen,Branch
+39,39,8/1/2023,Transfer,4261,,Gorichevo,Branch
+40,40,2/25/2024,Deposit,2315,,La Joya,Branch
+41,41,6/25/2024,Deposit,1062,,Cincinnati,ATM
+42,42,6/30/2024,Withdrawal,1462,,Purda,Online
+43,43,7/19/2022,Withdrawal,512,,San Antonio,ATM
+44,44,8/31/2022,Withdrawal,4655,,La Rioja,ATM
+45,45,1/21/2022,Transfer,3217,,Qaryūt,ATM
+46,46,4/26/2024,Deposit,2925,,Qimantage,Branch
+47,47,2/19/2022,Withdrawal,1149,,Rochester,Online
+48,48,9/12/2024,Deposit,4885,,Richmond,Branch
+49,49,6/19/2022,Deposit,360,,Novopokrovka,Branch
+50,50,9/4/2023,Deposit,3052,,Białobrzegi,Online
+51,51,12/26/2023,Withdrawal,357,,Rybnoye,ATM
+52,52,9/15/2023,Transfer,3270,,Yakimovo,ATM
+53,53,3/14/2024,Withdrawal,3147,,Buket Teukuh,ATM
+54,54,6/13/2022,Transfer,1286,,Desnogorsk,ATM
+55,55,6/27/2022,Deposit,3671,,Lenningen,Branch
+56,56,3/11/2022,Withdrawal,43,,Guayabal de Síquima,ATM
+57,57,6/23/2024,Deposit,3738,,Daniëlskuil,ATM
+58,58,11/14/2023,Transfer,4077,,Cuauhtemoc,Online
+59,59,5/6/2023,Transfer,4768,,Hakodate,Branch
+60,60,10/22/2022,Deposit,1720,,Străşeni,Branch
+61,61,5/27/2022,Deposit,3813,,Verkhniy Lomov,ATM
+62,62,1/18/2023,Deposit,3532,,Gyōda,Online
+63,63,3/8/2024,Withdrawal,2572,,Emiliano Zapata,Online
+64,64,2/9/2023,Withdrawal,2181,,Tsiroanomandidy,Online
+65,65,6/29/2022,Deposit,3991,,Barru,ATM
+66,66,7/14/2023,Transfer,4111,,Guilmaro,ATM
+67,67,6/1/2023,Withdrawal,119,,L'viv,Branch
+68,68,7/2/2022,Withdrawal,41,,Ústí nad Labem,ATM
+69,69,4/23/2024,Deposit,2451,,Annapolis,ATM
+70,70,11/9/2022,Withdrawal,2923,,Sigay,Branch
+71,71,5/27/2024,Deposit,4968,,Mtsamdou,ATM
+72,72,1/30/2023,Deposit,3797,,Bambas,ATM
+73,73,5/16/2023,Deposit,4990,,Kampene,ATM
+74,74,9/4/2024,Withdrawal,2021,,Ciénega,Online
+75,75,1/12/2023,Deposit,2579,,Pinhão,Online
+76,76,1/15/2023,Withdrawal,2736,,Villa Atamisqui,Online
+77,77,3/20/2022,Deposit,1353,,Tubod,ATM
+78,78,6/15/2022,Deposit,3014,,Tromsø,Online
+79,79,1/29/2023,Withdrawal,3715,,San Antonio Oeste,Online
+80,80,4/27/2024,Deposit,2035,,Jieshan,ATM
+81,81,12/31/2023,Transfer,1509,,Krajan Karanganyar,Branch
+82,82,11/4/2023,Transfer,1533,,Toungo,ATM
+83,83,3/16/2024,Transfer,3884,,Châu Thành,ATM
+84,84,1/30/2023,Transfer,385,,Nsanje,ATM
+85,85,9/13/2024,Withdrawal,2480,,Al Metlaoui,ATM
+86,86,1/9/2024,Withdrawal,2821,,Bayt ‘Awwā,Online
+87,87,3/6/2024,Withdrawal,3024,,Labin,Online
+88,88,2/19/2023,Deposit,3076,,Bordeaux,Branch
+89,89,6/18/2024,Withdrawal,3899,,Muchkapskiy,Online
+90,90,7/4/2022,Deposit,2351,,Talisayan,Branch
+91,91,11/26/2023,Deposit,3323,,Marmashen,ATM
+92,92,12/24/2024,Deposit,4004,,Chittagong,ATM
+93,93,2/22/2022,Deposit,1107,,Yiwa,ATM
+94,94,9/22/2023,Deposit,4084,,Stamford,ATM
+95,95,9/30/2024,Withdrawal,2427,,Mach,ATM
+96,96,6/8/2024,Transfer,3366,,Parikkala,ATM
+97,97,7/7/2024,Transfer,2410,,Prínos,Branch
+98,98,11/13/2023,Transfer,425,,Krupanj,Online
+99,99,7/8/2022,Withdrawal,3603,,Suhong,Branch
+100,100,2/12/2024,Deposit,1032,,Liaoyang,Online
+101,101,2/1/2022,Withdrawal,2995,,Longwy,Branch
+102,102,10/4/2024,Transfer,856,,Bojongloa,ATM
+103,103,4/28/2024,Withdrawal,4972,,Baja Mar,ATM
+104,104,1/29/2023,Deposit,1962,,Xiangrong,Online
+105,105,2/7/2024,Transfer,3913,,Selikhino,ATM
+106,106,6/21/2023,Withdrawal,3364,,Novorossiysk,Branch
+107,107,9/2/2024,Transfer,1393,,Neietsu,Branch
+108,108,8/8/2022,Transfer,1064,,Helmsange,Branch
+109,109,6/19/2023,Withdrawal,2779,,Rama,Branch
+110,110,11/27/2024,Transfer,1187,,Río Colorado,ATM
+111,111,10/8/2022,Deposit,3109,,Al Maşdūr,Online
+112,112,10/23/2023,Deposit,2439,,Dongsheng,Branch
+113,113,7/26/2023,Deposit,4979,,Kajiki,Online
+114,114,4/16/2023,Deposit,280,,Tayturka,ATM
+115,115,2/5/2022,Withdrawal,105,,Fuente de Oro,ATM
+116,116,11/15/2024,Withdrawal,860,,Itatinga,ATM
+117,117,1/29/2024,Withdrawal,171,,Randuagung,Online
+118,118,9/13/2023,Deposit,3383,,Urung,ATM
+119,119,2/4/2022,Deposit,240,,Sharjah,Online
+120,120,1/2/2023,Deposit,4761,,Pogórze,Branch
+121,121,3/1/2024,Deposit,1456,,Dezhou,Online
+122,122,9/4/2023,Deposit,2237,,Bayaguana,Online
+123,123,7/12/2023,Deposit,1720,,Gaoling,ATM
+124,124,11/13/2022,Transfer,3119,,Huacrapuquio,ATM
+125,125,12/17/2024,Transfer,707,,Liminka,ATM
+126,126,8/29/2024,Deposit,3161,,El Carmen,ATM
+127,127,1/17/2023,Transfer,1771,,Cértegui,Online
+128,128,1/2/2022,Deposit,1616,,Ćićevac,Branch
+129,129,9/2/2023,Transfer,2826,,Al Madān,ATM
+130,130,12/15/2024,Deposit,1824,,Katori-shi,ATM
+131,131,4/13/2023,Deposit,4398,,Krousón,Branch
+132,132,5/11/2024,Deposit,4497,,Trinity,Online
+133,133,3/27/2024,Transfer,4622,,Itaperuçu,ATM
+134,134,4/16/2024,Transfer,3604,,Неготино,Branch
+135,135,8/28/2024,Deposit,1754,,Sannois,ATM
+136,136,2/24/2024,Transfer,3563,,Chaloem Phra Kiat,Online
+137,137,3/16/2022,Deposit,2893,,Bošovice,Online
+138,138,11/20/2024,Deposit,4094,,San Vicente,Branch
+139,139,2/23/2022,Withdrawal,2747,,Hedi,ATM
+140,140,10/8/2022,Withdrawal,3696,,Choca do Mar,Online
+141,141,6/13/2024,Deposit,2684,,Prince Edward,ATM
+142,142,4/29/2023,Transfer,787,,Wasogolo,ATM
+143,143,3/27/2024,Deposit,20,,Nikísiani,Online
+144,144,11/8/2022,Transfer,2707,,Pittsburgh,Branch
+145,145,6/16/2024,Transfer,2201,,Road Town,Branch
+146,146,2/20/2022,Deposit,4525,,Sanya,Online
+147,147,6/10/2022,Withdrawal,1820,,Menlou’ao,ATM
+148,148,8/6/2022,Deposit,3353,,Roma,ATM
+149,149,1/8/2024,Deposit,4994,,Leigu,Branch
+150,150,11/22/2022,Transfer,2291,,Luzern,ATM
+151,151,1/10/2024,Deposit,2039,,Konibodom,ATM
+152,152,11/6/2022,Transfer,2831,,Pijao,Online
+153,153,7/21/2024,Transfer,4577,,Puget-sur-Argens,ATM
+154,154,11/19/2024,Withdrawal,4581,,An Châu,ATM
+155,155,3/9/2023,Transfer,230,,Memphis,Branch
+156,156,11/3/2024,Transfer,3127,,Ibiúna,ATM
+157,157,9/8/2024,Deposit,3734,,Helong,Branch
+158,158,4/27/2023,Deposit,1706,,Salem,Online
+159,159,6/18/2023,Withdrawal,4859,,Hicksville,Online
+160,160,11/8/2024,Transfer,2140,,Fangxian,Branch
+161,161,11/10/2024,Transfer,2384,,Derbent,Branch
+162,162,10/28/2022,Deposit,3576,,Mýrina,Online
+163,163,8/21/2024,Withdrawal,3659,,Saransk,Online
+164,164,2/24/2024,Withdrawal,3723,,Sukorejo,ATM
+165,165,4/3/2022,Withdrawal,2004,,Hongshi,Online
+166,166,12/9/2023,Deposit,327,,Miaoling,ATM
+167,167,4/7/2024,Deposit,3920,,Sattahip,Branch
+168,168,1/11/2024,Deposit,1433,,Muñoz East,ATM
+169,169,9/3/2022,Withdrawal,203,,Boyeros,Branch
+170,170,2/19/2022,Withdrawal,2776,,Verin Artashat,Online
+171,171,8/12/2024,Transfer,3945,,Kindu,Branch
+172,172,7/28/2023,Deposit,378,,Huangban,Online
+173,173,3/12/2022,Deposit,4983,,Wootton,Online
+174,174,1/31/2024,Deposit,4797,,Verkhnya Rozhanka,Branch
+175,175,10/15/2023,Deposit,2074,,Wulan,ATM
+176,176,5/27/2024,Transfer,3497,,Lusacan,ATM
+177,177,2/4/2023,Withdrawal,3322,,Rubio,Online
+178,178,10/26/2022,Transfer,1396,,Tianxing,ATM
+179,179,3/14/2022,Withdrawal,4038,,Talagante,Online
+180,180,2/7/2024,Withdrawal,166,,Gal’bshtadt,Online
+181,181,6/7/2023,Deposit,3263,,Karlovy Vary,Branch
+182,182,10/31/2024,Transfer,1429,,Bakaran Kulon,ATM
+183,183,10/12/2022,Withdrawal,366,,Camaligan,Branch
+184,184,6/12/2023,Transfer,4713,,Chantepie,Online
+185,185,12/4/2023,Transfer,677,,Fengyi,ATM
+186,186,3/31/2023,Withdrawal,763,,Xipi,Online
+187,187,5/31/2022,Deposit,3094,,Chanika,Online
+188,188,2/12/2024,Withdrawal,293,,Hexi,Online
+189,189,4/23/2023,Transfer,4453,,Mariestad,Branch
+190,190,8/9/2024,Deposit,417,,Kukichūō,Branch
+191,191,4/19/2024,Withdrawal,4393,,Talacogon,Branch
+192,192,8/3/2024,Deposit,4215,,Baishi,Online
+193,193,12/4/2024,Withdrawal,3963,,Presidente Epitácio,Online
+194,194,12/4/2023,Transfer,1938,,Shentang,Online
+195,195,5/1/2023,Deposit,3909,,Boston,Branch
+196,196,11/8/2024,Deposit,4942,,Obando,Branch
+197,197,6/17/2022,Deposit,4522,,Novhorodka,Branch
+198,198,11/2/2024,Transfer,2997,,Östhammar,ATM
+199,199,11/17/2022,Transfer,1132,,Thị Trấn Mường Lát,Online
+200,200,2/27/2022,Deposit,4959,,Ban Phan Don,Branch
+201,201,7/26/2022,Transfer,103,,Nakhon Pathom,Online
+202,202,11/7/2023,Withdrawal,4328,,Askaniya Nova,ATM
+203,203,7/14/2024,Deposit,1347,,Imbituva,Online
+204,204,9/18/2024,Withdrawal,4408,,Impalutao,Branch
+205,205,8/1/2022,Transfer,740,,Batubantar,Branch
+206,206,9/27/2022,Deposit,54,,Heqiao,Branch
+207,207,3/16/2023,Transfer,2818,,Bromma,ATM
+208,208,1/20/2022,Withdrawal,2902,,Sukomulyo,ATM
+209,209,3/17/2024,Deposit,2917,,Hongtang,Branch
+210,210,4/8/2022,Deposit,3891,,Beizhuang,ATM
+211,211,5/5/2022,Withdrawal,2890,,Guinoaliuan,Online
+212,212,10/15/2024,Withdrawal,396,,Jixin,Branch
+213,213,5/8/2024,Deposit,3532,,Maiac,ATM
+214,214,8/1/2022,Transfer,635,,Sydney,Branch
+215,215,9/22/2022,Transfer,245,,Church End,ATM
+216,216,8/18/2024,Deposit,166,,Tsetsegnuur,Branch
+217,217,8/2/2024,Deposit,2598,,Cibolang,Branch
+218,218,4/25/2022,Withdrawal,1655,,Abashiri,Branch
+219,219,4/9/2022,Transfer,1912,,Olutanga,Branch
+220,220,1/16/2024,Deposit,1666,,Gamping Lor,Online
+221,221,4/28/2023,Deposit,1917,,Gostyń,Branch
+222,222,5/2/2024,Withdrawal,4386,,Nggesa,Branch
+223,223,8/13/2024,Deposit,2484,,Vodyane,ATM
+224,224,5/17/2023,Withdrawal,2809,,Fukuyama,ATM
+225,225,11/7/2022,Deposit,4607,,Majie,ATM
+226,226,6/8/2023,Transfer,1601,,Lop,ATM
+227,227,3/22/2023,Deposit,4787,,Baimiao,ATM
+228,228,6/23/2023,Transfer,3909,,Parang,Branch
+229,229,10/26/2023,Transfer,1942,,Kamenjane,ATM
+230,230,2/21/2023,Withdrawal,71,,Neskaupstaður,Branch
+231,231,10/5/2023,Transfer,3089,,Huyu,Branch
+232,232,11/29/2023,Withdrawal,3411,,Abonnema,ATM
+233,233,8/6/2022,Deposit,4792,,Dihtyari,Branch
+234,234,5/3/2023,Deposit,2264,,São Bento,Branch
+235,235,3/4/2024,Transfer,3690,,Tongkiling,Branch
+236,236,8/23/2022,Transfer,3209,,Rrapë,Branch
+237,237,2/1/2024,Withdrawal,2246,,Mahdishahr,Branch
+238,238,5/18/2022,Transfer,4236,,Amsterdam Binnenstad en Oostelijk Havengebied,Branch
+239,239,12/6/2024,Deposit,961,,Pitanga,ATM
+240,240,7/23/2022,Withdrawal,415,,Hitoyoshi,ATM
+241,241,8/4/2022,Deposit,556,,Babice,Online
+242,242,11/10/2024,Deposit,4014,,Shipaidong,Branch
+243,243,5/29/2022,Withdrawal,594,,Tilburg,ATM
+244,244,7/24/2024,Withdrawal,4877,,Podedwórze,ATM
+245,245,6/7/2024,Deposit,1468,,Krasnoye,Branch
+246,246,11/4/2023,Withdrawal,3851,,Conchal,Branch
+247,247,4/1/2022,Withdrawal,4890,,Saint-Lambert-de-Lauzon,Branch
+248,248,7/14/2023,Deposit,2648,,Compiègne,Online
+249,249,1/4/2023,Transfer,3782,,Magdalena,Online
+250,250,12/21/2022,Withdrawal,465,,Lat Lum Kaeo,Branch
+251,251,8/9/2022,Withdrawal,4575,,Suresnes,ATM
+252,252,8/17/2022,Transfer,3653,,Hualin,Branch
+253,253,1/16/2022,Deposit,2547,,Jeonju,ATM
+254,254,3/13/2024,Transfer,383,,Tigpalay,Branch
+255,255,5/2/2023,Withdrawal,2114,,General Vedia,Online
+256,256,11/18/2024,Deposit,2464,,Bayt Ūlā,Online
+257,257,6/8/2024,Transfer,3990,,Zákynthos,ATM
+258,258,12/25/2023,Deposit,1308,,Montinho,Branch
+259,259,9/24/2022,Withdrawal,62,,Venëv,ATM
+260,260,9/22/2024,Withdrawal,3058,,Vorontsovka,Online
+261,261,12/22/2024,Withdrawal,2132,,Ryazhsk,Online
+262,262,5/30/2023,Transfer,3043,,Elassóna,Branch
+263,263,1/23/2024,Transfer,2033,,Obsza,Branch
+264,264,5/31/2024,Withdrawal,711,,Bla,ATM
+265,265,3/7/2024,Deposit,372,,Takai,ATM
+266,266,3/16/2024,Deposit,1539,,Sámi,ATM
+267,267,10/19/2024,Withdrawal,3117,,Muyinga,Branch
+268,268,2/29/2024,Deposit,94,,Münster,Branch
+269,269,1/28/2022,Transfer,1196,,San Ramon,Branch
+270,270,10/30/2022,Transfer,3393,,Xindai,ATM
+271,271,11/24/2023,Withdrawal,2572,,Gēdo,ATM
+272,272,7/9/2023,Withdrawal,91,,Lüyang,Online
+273,273,4/9/2022,Withdrawal,3643,,Nangerang,Online
+274,274,7/9/2024,Transfer,2889,,Vale das Mós,Online
+275,275,12/31/2024,Deposit,1661,,Catac,ATM
+276,276,11/5/2022,Withdrawal,600,,Saraburi,Branch
+277,277,9/15/2024,Deposit,4514,,Malhiao,Branch
+278,278,12/22/2023,Transfer,2932,,Baykalovo,ATM
+279,279,3/19/2023,Transfer,3945,,Dongfeng,ATM
+280,280,9/11/2022,Transfer,2568,,Ashtarak,Branch
+281,281,1/29/2024,Deposit,4936,,Stakhanov,Branch
+282,282,6/6/2022,Withdrawal,2402,,Wangdun,Online
+283,283,12/31/2023,Withdrawal,4051,,Galovac,Online
+284,284,1/28/2022,Deposit,4910,,Phúc Yên,Branch
+285,285,12/23/2023,Deposit,1229,,Chicacao,Branch
+286,286,1/10/2023,Withdrawal,1339,,Tampa,Online
+287,287,7/10/2022,Transfer,425,,Hurghada,ATM
+288,288,8/25/2024,Transfer,54,,Eṭ Ṭaiyiba,ATM
+289,289,8/19/2024,Withdrawal,4528,,San Pedro,ATM
+290,290,9/28/2024,Withdrawal,4817,,Hegeng,Online
+291,291,3/12/2024,Withdrawal,4572,,Chociwel,Branch
+292,292,2/8/2024,Deposit,219,,Nantes,Online
+293,293,1/9/2022,Transfer,3296,,Porangatu,Branch
+294,294,9/11/2024,Deposit,4500,,Waterbury,ATM
+295,295,3/4/2023,Withdrawal,1165,,Lianjiangkou,Online
+296,296,9/1/2022,Deposit,949,,Barvinkove,Online
+297,297,6/13/2023,Transfer,4983,,Nicoya,Online
+298,298,1/1/2023,Withdrawal,1611,,Evansville,Branch
+299,299,9/23/2022,Transfer,439,,Zhouyuan,Branch
+300,300,8/14/2022,Transfer,4439,,20 de Noviembre,Branch
+301,301,6/13/2024,Withdrawal,4609,,Fuyong,Branch
+302,302,11/12/2024,Transfer,2145,,Yudaikelike,Online
+303,303,4/19/2023,Deposit,2059,,Ribeira Quente,Branch
+304,304,10/10/2024,Deposit,727,,Ho,Online
+305,305,8/18/2023,Withdrawal,3454,,Castanheira,Online
+306,306,9/22/2024,Deposit,4416,,San Francisco de Coray,Branch
+307,307,12/26/2022,Deposit,806,,Los Rastrojos,ATM
+308,308,2/26/2022,Withdrawal,1942,,Krajan Bakalan,ATM
+309,309,8/24/2023,Withdrawal,2593,,Moganshan,Online
+310,310,9/28/2023,Withdrawal,1670,,Biñan,Online
+311,311,10/4/2022,Deposit,3436,,Bielawa,ATM
+312,312,2/1/2023,Withdrawal,452,,São Roque,ATM
+313,313,11/12/2023,Transfer,4935,,Banyutengah,Online
+314,314,2/4/2023,Transfer,4510,,Hangchuan,Branch
+315,315,8/27/2022,Withdrawal,1324,,Julayjilah,Branch
+316,316,12/9/2024,Deposit,4299,,Kumanovo,Branch
+317,317,12/19/2024,Withdrawal,3073,,Gangshangji,Online
+318,318,8/20/2023,Deposit,2561,,Arevashogh,Online
+319,319,5/29/2024,Withdrawal,78,,Maroa,ATM
+320,320,5/22/2024,Deposit,4142,,Mayo,Online
+321,321,9/21/2023,Deposit,4160,,Isla,Branch
+322,322,7/30/2022,Deposit,3847,,Calingcing,ATM
+323,323,2/1/2023,Withdrawal,2173,,Kavalerovo,Online
+324,324,2/21/2023,Withdrawal,2856,,Taunoa,Branch
+325,325,7/21/2024,Withdrawal,2746,,Wenquan,Online
+326,326,1/25/2024,Deposit,1625,,Bin’an,Online
+327,327,2/27/2023,Withdrawal,4345,,Caijiazha,ATM
+328,328,10/12/2022,Deposit,4406,,Oeleon,Online
+329,329,12/25/2023,Transfer,4394,,Pochinki,Online
+330,330,3/29/2023,Deposit,1294,,Wuluquele,ATM
+331,331,5/15/2022,Transfer,2228,,Presidente Epitácio,Online
+332,332,9/10/2024,Deposit,350,,Buerarema,Online
+333,333,7/28/2022,Withdrawal,4442,,Zhongxin,ATM
+334,334,6/29/2022,Withdrawal,3081,,San Jose del Monte,Online
+335,335,5/29/2023,Transfer,1172,,Maqiu,Online
+336,336,7/30/2023,Deposit,4970,,Ngorongoro,Online
+337,337,2/11/2023,Withdrawal,638,,San Mateo,ATM
+338,338,12/28/2024,Withdrawal,2127,,Sivaki,Online
+339,339,11/7/2022,Transfer,2648,,Chaowai,Online
+340,340,4/24/2024,Deposit,397,,Inazawa,ATM
+341,341,7/8/2023,Deposit,349,,Néa Filadélfeia,Online
+342,342,2/11/2024,Withdrawal,1287,,Longgang,ATM
+343,343,4/17/2024,Transfer,806,,Évry,Online
+344,344,3/6/2024,Withdrawal,1319,,Cairo,Online
+345,345,9/16/2022,Transfer,2785,,Rucheng Chengguanzhen,Branch
+346,346,12/29/2024,Transfer,4928,,Tiantai,ATM
+347,347,7/6/2023,Withdrawal,4423,,Recreio,Online
+348,348,9/6/2023,Transfer,4087,,Sipirok,ATM
+349,349,5/22/2024,Transfer,4778,,Tukums,ATM
+350,350,6/26/2023,Deposit,1670,,Stockholm,ATM
+351,351,3/5/2023,Withdrawal,970,,Taipingguan,Branch
+352,352,8/6/2024,Withdrawal,1211,,Nangerang,ATM
+353,353,8/27/2022,Transfer,138,,Kafr Dān,Online
+354,354,4/12/2023,Withdrawal,1917,,La Luz,Online
+355,355,5/20/2022,Transfer,1702,,Caxito,ATM
+356,356,3/11/2022,Transfer,2675,,Samborondón,ATM
+357,357,8/20/2024,Transfer,2298,,Bom Despacho,Branch
+358,358,1/25/2022,Transfer,2114,,Tlumačov,ATM
+359,359,6/9/2022,Transfer,4664,,Arlöv,Branch
+360,360,4/25/2024,Deposit,483,,Junqueiro,Online
+361,361,2/24/2024,Deposit,4738,,Bonneuil-sur-Marne,Branch
+362,362,2/1/2022,Deposit,1127,,Arujá,ATM
+363,363,7/13/2024,Transfer,1447,,Bình Thủy,Branch
+364,364,5/25/2024,Transfer,1683,,Zmeyskaya,Online
+365,365,5/12/2024,Deposit,204,,Cascavel,ATM
+366,366,1/24/2022,Transfer,3783,,Merlo,ATM
+367,367,9/9/2024,Transfer,578,,Paris 07,Branch
+368,368,6/16/2023,Deposit,476,,Xinglongquan,Branch
+369,369,3/29/2024,Deposit,1517,,Sausa,ATM
+370,370,3/12/2024,Withdrawal,3111,,Pārūn,ATM
+371,371,12/21/2022,Transfer,300,,Yasnogorsk,ATM
+372,372,4/12/2022,Deposit,1726,,Xingpinglu,Online
+373,373,12/24/2024,Transfer,166,,Pirot,ATM
+374,374,8/5/2024,Deposit,4934,,Krzeszów,Branch
+375,375,1/7/2023,Deposit,296,,Kutum,Branch
+376,376,4/10/2022,Deposit,1620,,Hal’shany,Branch
+377,377,9/3/2022,Deposit,325,,Saint-Julien-en-Genevois,ATM
+378,378,11/18/2022,Deposit,78,,Sonsorol Village,Branch
+379,379,9/18/2023,Withdrawal,2004,,Casal do Sapo,Online
+380,380,4/4/2024,Deposit,2280,,Xibin,Branch
+381,381,2/24/2023,Deposit,4440,,Lattes,Online
+382,382,12/30/2024,Deposit,2426,,Bergen op Zoom,ATM
+383,383,2/5/2022,Deposit,932,,Nishinoomote,ATM
+384,384,4/3/2024,Withdrawal,4470,,Niquelândia,Online
+385,385,3/10/2022,Transfer,3730,,Cantagallo,ATM
+386,386,6/22/2024,Transfer,2532,,Rajūzah,ATM
+387,387,5/8/2024,Transfer,1622,,Khuzhir,Branch
+388,388,4/9/2023,Deposit,2571,,Irshava,Branch
+389,389,1/18/2022,Deposit,1811,,Shiniujiang,ATM
+390,390,5/21/2022,Withdrawal,2037,,Aldeia de Juzo,Online
+391,391,12/27/2022,Transfer,3146,,Pimenta Bueno,Branch
+392,392,8/6/2024,Deposit,3948,,Zilang,Online
+393,393,5/13/2024,Withdrawal,3323,,Lyaskelya,Branch
+394,394,8/29/2024,Withdrawal,4690,,Zelenodolsk,ATM
+395,395,7/24/2024,Transfer,4535,,Beylagan,Online
+396,396,12/23/2022,Withdrawal,203,,Jingxin,Branch
+397,397,3/4/2024,Transfer,4699,,Tazemmourt,ATM
+398,398,7/29/2024,Withdrawal,1344,,Lhakangtang,Branch
+399,399,11/10/2023,Transfer,2468,,Täby,Online
+400,400,6/6/2022,Transfer,1463,,Liufeng,ATM
+401,401,1/17/2023,Withdrawal,3219,,Wādī as Salqā,ATM
+402,402,10/11/2023,Deposit,883,,Austin,ATM
+403,403,1/20/2023,Withdrawal,505,,Preobrazheniye,Online
+404,404,7/21/2024,Withdrawal,4934,,Yahe,ATM
+405,405,11/24/2024,Transfer,4926,,Serrinha,Online
+406,406,9/25/2023,Transfer,1133,,Dongke,Branch
+407,407,4/12/2024,Deposit,2790,,Nevers,Online
+408,408,9/14/2022,Deposit,4181,,Chaoshui,Online
+409,409,10/27/2024,Transfer,1839,,Loandjili,Online
+410,410,9/24/2023,Transfer,515,,Hoàn Kiếm,Online
+411,411,9/30/2024,Transfer,4138,,Jenamas,ATM
+412,412,12/1/2022,Transfer,1884,,Anyama,Online
+413,413,6/10/2023,Transfer,1114,,Sevan,Branch
+414,414,1/29/2022,Withdrawal,61,,San Juan,ATM
+415,415,1/8/2024,Transfer,1979,,Balfour,ATM
+416,416,12/29/2024,Deposit,2457,,Gibbons,Online
+417,417,7/9/2022,Transfer,153,,Guadalupe,ATM
+418,418,7/14/2024,Deposit,3714,,Thị Trấn Quảng Uyên,Online
+419,419,6/28/2023,Deposit,4518,,Sukowiryo,ATM
+420,420,4/12/2022,Deposit,844,,Padilla,Online
+421,421,8/16/2024,Transfer,4379,,San Antonio,Branch
+422,422,5/31/2024,Transfer,3124,,Kolyvan’,ATM
+423,423,1/28/2022,Transfer,1665,,Mengxingzhuang,Online
+424,424,5/13/2024,Withdrawal,4766,,Nanyuan,ATM
+425,425,1/13/2023,Withdrawal,1035,,Kelowna,Branch
+426,426,2/8/2023,Transfer,4376,,Phoenix,ATM
+427,427,9/1/2022,Deposit,722,,Zangbi,Online
+428,428,12/11/2023,Deposit,1999,,Mchinji,ATM
+429,429,8/12/2023,Withdrawal,3576,,Zgurovka,Branch
+430,430,7/8/2024,Deposit,930,,Rancabelut,Branch
+431,431,4/5/2023,Transfer,918,,Fangqiang,Branch
+432,432,11/19/2022,Deposit,398,,Fujioka,Branch
+433,433,2/4/2022,Transfer,1723,,Ciburial,Branch
+434,434,1/8/2023,Withdrawal,976,,Leyuan,Branch
+435,435,1/9/2023,Transfer,582,,Siva,Branch
+436,436,5/26/2022,Transfer,1251,,Emmen,ATM
+437,437,2/8/2023,Transfer,1921,,Zhoushizhuang,Branch
+438,438,9/13/2024,Deposit,4541,,Bambari,Branch
+439,439,5/5/2024,Transfer,1872,,Burnaby,Online
+440,440,1/24/2022,Deposit,4557,,Giawang,Online
+441,441,9/3/2022,Deposit,1409,,Micheng,Branch
+442,442,1/18/2022,Deposit,2601,,Lamawalang,ATM
+443,443,1/6/2023,Transfer,1340,,København,Branch
+444,444,7/30/2022,Transfer,4380,,Sucre,ATM
+445,445,5/24/2023,Transfer,3118,,Moog,ATM
+446,446,2/26/2023,Withdrawal,3736,,Busuanga,ATM
+447,447,4/6/2024,Transfer,3633,,Minji,ATM
+448,448,4/26/2022,Transfer,653,,Jangheung,Online
+449,449,4/24/2024,Withdrawal,2582,,Carapelhos,Branch
+450,450,9/24/2023,Withdrawal,3338,,Sidomakmur,Branch
+451,451,5/19/2022,Withdrawal,134,,Jiekeng,Online
+452,452,7/28/2023,Transfer,3496,,Mencon,Online
+453,453,1/14/2023,Deposit,762,,Laç,Online
+454,454,10/16/2022,Withdrawal,3739,,Bratislava,Online
+455,455,12/8/2022,Transfer,778,,Tuanfeng,ATM
+456,456,2/28/2023,Deposit,2641,,Makiwalo,Branch
+457,457,12/18/2022,Withdrawal,1206,,San Clemente,Branch
+458,458,10/25/2023,Transfer,1974,,Saḩāb,ATM
+459,459,1/21/2024,Deposit,1907,,Évry,Online
+460,460,2/14/2024,Transfer,2451,,Bella Vista,ATM
+461,461,8/14/2024,Transfer,1667,,Nanyi,Online
+462,462,10/1/2024,Transfer,187,,Yichun,ATM
+463,463,5/8/2024,Withdrawal,893,,La Ravoire,Branch
+464,464,2/17/2022,Withdrawal,2076,,Qiaoshi,ATM
+465,465,6/8/2022,Deposit,4113,,Sośnie,ATM
+466,466,6/9/2022,Transfer,4557,,Sanchahe,ATM
+467,467,3/23/2022,Deposit,1121,,Graneros,Online
+468,468,3/22/2022,Withdrawal,4570,,Lisičani,ATM
+469,469,12/8/2024,Deposit,3951,,Lingbei,Online
+470,470,10/9/2022,Transfer,1097,,Qiryat Shemona,ATM
+471,471,1/8/2024,Withdrawal,3993,,Ta Phraya,Branch
+472,472,5/28/2024,Deposit,1025,,Dresden,ATM
+473,473,8/8/2023,Deposit,4146,,Dabu,Online
+474,474,12/17/2024,Deposit,1901,,Las Toscas,ATM
+475,475,5/30/2022,Transfer,79,,Quinta da Torre,Branch
+476,476,7/29/2023,Deposit,2774,,Zahedan,Online
+477,477,4/20/2023,Deposit,2636,,Sergach,ATM
+478,478,6/29/2022,Deposit,1786,,Huế,ATM
+479,479,9/13/2024,Withdrawal,2111,,Camilaca,Online
+480,480,5/29/2023,Deposit,2284,,Riđica,Online
+481,481,2/20/2024,Withdrawal,4137,,Stari Kuty,ATM
+482,482,12/29/2022,Deposit,4600,,Los Lotes,Online
+483,483,6/17/2024,Withdrawal,1860,,Prizren,ATM
+484,484,6/10/2023,Transfer,538,,Gombong,ATM
+485,485,7/21/2022,Deposit,4993,,São Miguel do Iguaçu,Branch
+486,486,10/12/2023,Transfer,4149,,Wuqu,Branch
+487,487,12/29/2022,Deposit,3229,,Tazarine,Branch
+488,488,3/21/2023,Deposit,2487,,Bajomulyo,ATM
+489,489,8/31/2022,Deposit,3015,,Volokolamsk,Branch
+490,490,4/5/2022,Withdrawal,3215,,Trondheim,Online
+491,491,9/24/2024,Withdrawal,2888,,Guanta,Online
+492,492,4/14/2022,Withdrawal,4418,,Sembon,ATM
+493,493,1/28/2022,Transfer,2625,,Calceta,Online
+494,494,7/29/2022,Deposit,3061,,Kuanchuan,Branch
+495,495,11/15/2023,Transfer,4269,,Kabankalan,Online
+496,496,7/26/2023,Transfer,2171,,Cabo de Vila,Online
+497,497,3/22/2022,Transfer,142,,Keli,Branch
+498,498,11/7/2022,Deposit,2615,,Thanh Khê,Branch
+499,499,2/18/2024,Deposit,3970,,Sritanjung,Branch
+500,500,2/27/2022,Deposit,1698,,Ban Mo,Online
+501,501,1/1/2022,Deposit,1449,,Lahar,ATM
+502,502,7/1/2023,Withdrawal,1141,,Gujrāt,Branch
+503,503,4/25/2023,Withdrawal,3687,,Bakov nad Jizerou,Online
+504,504,12/10/2024,Deposit,2790,,Josefův Důl,ATM
+505,505,8/29/2024,Withdrawal,4651,,Buri,Branch
+506,506,8/16/2023,Withdrawal,3256,,Józefów,ATM
+507,507,2/11/2022,Withdrawal,1721,,Mellila,Online
+508,508,3/27/2023,Transfer,2946,,Oklahoma City,Branch
+509,509,10/12/2022,Deposit,778,,Melaka,Branch
+510,510,5/22/2022,Withdrawal,1636,,Somdet,Online
+511,511,7/31/2023,Deposit,1096,,Dukoh,Online
+512,512,10/17/2022,Deposit,175,,Vilares,Online
+513,513,7/17/2024,Deposit,3160,,Gandajika,Online
+514,514,9/20/2023,Deposit,4939,,Yonghe,Branch
+515,515,11/7/2024,Withdrawal,1234,,Compiègne,Online
+516,516,8/28/2024,Transfer,2311,,Songzhuang,Branch
+517,517,12/1/2024,Transfer,3868,,Fulu,ATM
+518,518,5/26/2023,Deposit,3639,,Zhushan,ATM
+519,519,7/23/2024,Withdrawal,2590,,Punta del Este,Branch
+520,520,5/28/2023,Transfer,3209,,Nairobi,Online
+521,521,10/4/2024,Withdrawal,3372,,São Sebastião do Paraíso,Branch
+522,522,8/24/2023,Transfer,1867,,Shilong,Branch
+523,523,1/28/2024,Withdrawal,1209,,Sangju,Branch
+524,524,11/25/2024,Withdrawal,4912,,Luoshan,Online
+525,525,3/20/2024,Transfer,2945,,Sugcad,Branch
+526,526,3/23/2023,Deposit,800,,Komletinci,Branch
+527,527,8/26/2022,Withdrawal,4013,,Semampir,Online
+528,528,9/15/2023,Transfer,1369,,Corona,Online
+529,529,11/6/2023,Deposit,1681,,Gŭlŭbovo,Branch
+530,530,9/26/2024,Transfer,2648,,Sake,Branch
+531,531,2/20/2023,Withdrawal,4436,,Roudnice nad Labem,ATM
+532,532,8/18/2022,Withdrawal,2028,,Wafang,Branch
+533,533,10/27/2022,Deposit,1825,,Hongguang,Branch
+534,534,6/16/2024,Transfer,1283,,Archis,Online
+535,535,3/21/2024,Deposit,2020,,Castrovirreyna,Branch
+536,536,1/2/2023,Withdrawal,1761,,Fengyi,ATM
+537,537,4/27/2023,Transfer,35,,Cañasgordas,ATM
+538,538,8/14/2023,Withdrawal,3113,,Santiago dos Velhos,Online
+539,539,9/25/2023,Deposit,1091,,Acevedo,ATM
+540,540,9/26/2023,Withdrawal,2804,,Moussoro,Online
+541,541,3/8/2024,Deposit,1478,,Fiães,Online
+542,542,4/18/2023,Deposit,2125,,Changxuanling,Branch
+543,543,6/16/2022,Transfer,1100,,Hongxi,Online
+544,544,8/12/2024,Withdrawal,2533,,Cipari,Online
+545,545,2/14/2023,Withdrawal,4282,,Cikalong,Online
+546,546,9/8/2023,Withdrawal,3466,,Pondokaso,Branch
+547,547,1/22/2022,Deposit,228,,Josefův Důl,ATM
+548,548,9/2/2024,Deposit,327,,Yueyahe,ATM
+549,549,11/25/2024,Transfer,2605,,Shakhty,Branch
+550,550,12/26/2024,Deposit,1200,,Cartagena,Online
+551,551,6/5/2024,Transfer,4794,,Ordzhonikidzevskiy,Online
+552,552,4/13/2022,Withdrawal,397,,Idritsa,ATM
+553,553,11/10/2024,Deposit,3934,,Vondrozo,Online
+554,554,2/11/2022,Transfer,3028,,Dayangzhou,ATM
+555,555,10/9/2022,Withdrawal,2631,,Banaba,ATM
+556,556,1/9/2024,Withdrawal,471,,Kisumu,ATM
+557,557,2/23/2023,Deposit,1684,,Monze,ATM
+558,558,1/13/2023,Transfer,4338,,Khadyzhensk,Online
+559,559,9/16/2023,Transfer,4807,,San Bautista,Online
+560,560,7/16/2024,Withdrawal,1968,,Ban Lŭng,ATM
+561,561,11/16/2024,Withdrawal,4083,,Wonda,Branch
+562,562,12/17/2023,Withdrawal,1754,,Maastricht,Branch
+563,563,4/14/2024,Deposit,1167,,Lopandino,Branch
+564,564,1/2/2024,Withdrawal,4106,,Huili Chengguanzhen,Branch
+565,565,12/29/2022,Withdrawal,4487,,Shuangzhu,Online
+566,566,4/14/2023,Deposit,2293,,Opočno,Branch
+567,567,7/14/2024,Deposit,1061,,Langsa,ATM
+568,568,2/10/2024,Transfer,2823,,Marmárion,Online
+569,569,1/14/2022,Withdrawal,2121,,Tyczyn,Branch
+570,570,6/15/2022,Withdrawal,1952,,Dete,ATM
+571,571,5/10/2023,Withdrawal,4471,,Niopanda,ATM
+572,572,5/7/2024,Deposit,556,,Konsoy,ATM
+573,573,6/14/2022,Transfer,1619,,Chapimarca,ATM
+574,574,12/27/2023,Deposit,2775,,Kaducondong,Branch
+575,575,10/3/2023,Transfer,1681,,Lycksele,Online
+576,576,3/31/2022,Withdrawal,3878,,Rumburk,Online
+577,577,7/12/2024,Transfer,3116,,Bang Yai,Online
+578,578,5/16/2024,Deposit,1506,,Malonty,ATM
+579,579,11/10/2022,Transfer,2901,,Solna,Online
+580,580,6/14/2022,Transfer,3608,,Kortkeros,Online
+581,581,2/1/2023,Deposit,255,,Steblevë,Branch
+582,582,8/17/2023,Transfer,823,,Borzęcin,Online
+583,583,9/15/2024,Deposit,4126,,Pangal Sur,ATM
+584,584,3/22/2022,Transfer,4932,,Cela,ATM
+585,585,12/29/2024,Transfer,2202,,Kajiki,ATM
+586,586,11/10/2022,Transfer,923,,Khān Arnabah,Branch
+587,587,12/7/2023,Transfer,168,,Talnakh,Branch
+588,588,2/12/2022,Withdrawal,1836,,Marília,Online
+589,589,2/24/2022,Deposit,1740,,Niš,Online
+590,590,1/4/2022,Withdrawal,1920,,L'Épiphanie,Online
+591,591,1/15/2022,Withdrawal,2714,,Veranópolis,Branch
+592,592,9/2/2023,Withdrawal,3699,,Napoli,ATM
+593,593,9/9/2024,Withdrawal,2344,,Banturkrajan,Online
+594,594,9/16/2022,Withdrawal,4874,,Pangapisan,ATM
+595,595,6/4/2023,Withdrawal,1534,,Guohua,ATM
+596,596,2/17/2024,Deposit,1549,,Ouaoula,Online
+597,597,6/7/2023,Transfer,1611,,Palermo,ATM
+598,598,4/20/2023,Deposit,4801,,Sanlidian,Online
+599,599,1/17/2024,Transfer,454,,Huaqiu,Online
+600,600,1/5/2024,Deposit,932,,Sebina,ATM
+601,601,3/15/2024,Transfer,2500,,Tateyama,Online
+602,602,7/17/2023,Withdrawal,1062,,Acobamba,Branch
+603,603,6/1/2022,Transfer,2997,,Weifang,Online
+604,604,11/30/2023,Transfer,4130,,Tembeling,ATM
+605,605,5/17/2022,Withdrawal,2126,,Rychwał,Branch
+606,606,10/6/2024,Deposit,2866,,Tanza,Branch
+607,607,1/20/2022,Withdrawal,2998,,Itaperuçu,Online
+608,608,1/17/2022,Deposit,2446,,Sel’tso,Branch
+609,609,10/24/2023,Transfer,2803,,Géfyra,ATM
+610,610,5/9/2022,Deposit,1114,,Shuyuan,ATM
+611,611,5/4/2022,Withdrawal,4869,,Miass,Online
+612,612,7/31/2023,Withdrawal,181,,Pajagan,Branch
+613,613,10/15/2023,Deposit,366,,Ryazanskiy,Online
+614,614,5/19/2023,Deposit,2953,,Skövde,ATM
+615,615,12/9/2022,Deposit,948,,Guiyang,Branch
+616,616,10/7/2022,Transfer,1866,,Al Jafr,ATM
+617,617,4/8/2024,Withdrawal,4839,,Olesno,ATM
+618,618,12/14/2023,Withdrawal,1662,,Xinqiaohe,Online
+619,619,7/5/2024,Deposit,714,,Greenland,ATM
+620,620,9/6/2024,Withdrawal,2771,,Llusco,Branch
+621,621,7/17/2022,Deposit,1103,,Ōbu,Branch
+622,622,10/10/2024,Transfer,1088,,Sérifos,Branch
+623,623,5/21/2022,Withdrawal,3444,,Iwaki,Online
+624,624,5/18/2024,Transfer,3125,,Degan,ATM
+625,625,12/28/2022,Withdrawal,3806,,Ansongo,Online
+626,626,3/4/2022,Deposit,3710,,Krasnosilka,Branch
+627,627,8/2/2022,Deposit,1917,,Ituiutaba,ATM
+628,628,7/25/2023,Deposit,1948,,Mtsamdou,Online
+629,629,7/6/2024,Deposit,440,,Piggotts,Online
+630,630,10/17/2022,Deposit,518,,Metz,Online
+631,631,2/17/2024,Deposit,786,,Vierzon,ATM
+632,632,3/9/2024,Withdrawal,1118,,Sa‘sa‘,Branch
+633,633,3/7/2024,Transfer,4436,,Dunlewy,Branch
+634,634,5/12/2023,Withdrawal,1043,,Ruma,Online
+635,635,4/30/2023,Transfer,1190,,Jangheung,Online
+636,636,6/29/2024,Withdrawal,3560,,Cuito,Branch
+637,637,5/10/2022,Deposit,1714,,Las Minas,Online
+638,638,12/6/2023,Withdrawal,943,,Machov,Online
+639,639,6/28/2022,Deposit,226,,Mengzhai,ATM
+640,640,12/3/2023,Transfer,49,,Toungo,ATM
+641,641,9/4/2024,Deposit,2285,,Huayuan,Branch
+642,642,3/22/2022,Transfer,625,,Kurihashi,Branch
+643,643,8/14/2024,Deposit,2869,,Busdi,Branch
+644,644,4/18/2022,Transfer,1619,,Zhongcun,ATM
+645,645,12/12/2022,Withdrawal,897,,Las Heras,ATM
+646,646,5/28/2022,Transfer,3097,,Nyrkiv,Online
+647,647,9/17/2024,Transfer,2738,,Pivka,ATM
+648,648,6/24/2023,Transfer,1355,,Tamorong,Branch
+649,649,3/27/2022,Transfer,4362,,Kassándreia,ATM
+650,650,8/2/2024,Deposit,3738,,Cervantes,Online
+651,651,10/9/2023,Transfer,3968,,Vilnius,Branch
+652,652,7/29/2022,Transfer,4819,,Mamonovo,Online
+653,653,11/13/2022,Withdrawal,1918,,Cidolog,Branch
+654,654,9/1/2024,Withdrawal,256,,Escuintla,Online
+655,655,5/21/2024,Transfer,1350,,Ansermanuevo,ATM
+656,656,2/24/2023,Deposit,1258,,Salinas,Online
+657,657,10/26/2022,Transfer,3293,,Datangzhuang,ATM
+658,658,11/28/2022,Transfer,3806,,Thepharak,Branch
+659,659,12/2/2023,Deposit,1398,,Qianyou,Branch
+660,660,10/24/2022,Withdrawal,1634,,Lianozovo,Online
+661,661,2/6/2024,Transfer,585,,Kruengraya,ATM
+662,662,6/9/2022,Transfer,1602,,Blagodatnoye,ATM
+663,663,1/6/2024,Transfer,1779,,Dolati,ATM
+664,664,8/14/2022,Transfer,4795,,Kunting,Online
+665,665,5/7/2023,Withdrawal,1916,,Xijiang,Online
+666,666,10/14/2022,Transfer,3448,,Temanjang,Online
+667,667,6/9/2022,Deposit,499,,Arue,Branch
+668,668,11/23/2022,Deposit,833,,Neuilly-sur-Marne,Online
+669,669,7/21/2024,Transfer,1928,,Batangtoru,ATM
+670,670,12/2/2022,Transfer,426,,Longwan,Online
+671,671,3/12/2023,Transfer,4107,,Svojat,Online
+672,672,1/31/2023,Transfer,2167,,Aeka,Branch
+673,673,4/4/2022,Transfer,4895,,Karangtengah,Branch
+674,674,7/11/2024,Deposit,1314,,Rama,Online
+675,675,4/20/2024,Withdrawal,1446,,Ādam,Branch
+676,676,4/29/2022,Withdrawal,1775,,Pesagen,Online
+677,677,12/29/2022,Transfer,256,,Jalalaqsi,Branch
+678,678,1/24/2023,Deposit,1648,,Saku,Branch
+679,679,3/4/2024,Transfer,71,,Magdaleno Aguilar,ATM
+680,680,12/5/2024,Transfer,1274,,Karanggeneng,Branch
+681,681,8/18/2023,Withdrawal,3684,,Bedalewun,Branch
+682,682,4/13/2023,Transfer,128,,Viloco,Online
+683,683,8/20/2022,Deposit,2443,,Vitória da Conquista,Online
+684,684,10/9/2023,Deposit,553,,Krajan Demit,ATM
+685,685,3/13/2023,Deposit,3896,,Obsharovka,ATM
+686,686,7/4/2023,Transfer,2325,,Wuqishan,Online
+687,687,1/5/2022,Deposit,189,,Mangaran,Online
+688,688,4/9/2022,Withdrawal,4629,,Tonjongsari,Online
+689,689,1/11/2023,Deposit,3329,,Corinto,Online
+690,690,12/19/2024,Deposit,2722,,Bobrowice,ATM
+691,691,3/8/2022,Transfer,4912,,Tongzi,Online
+692,692,10/1/2024,Transfer,2219,,Shamkhor,Online
+693,693,4/12/2024,Deposit,1770,,Omaha,Branch
+694,694,3/22/2023,Transfer,1566,,Koppies,ATM
+695,695,7/8/2024,Transfer,4525,,Kil,ATM
+696,696,1/30/2023,Withdrawal,552,,Media Luna,ATM
+697,697,2/13/2022,Withdrawal,2866,,Pasarkayu,ATM
+698,698,7/20/2024,Deposit,2480,,Beishan,ATM
+699,699,11/21/2023,Transfer,4339,,Nazaré,ATM
+700,700,6/26/2023,Deposit,4550,,Åstorp,Branch
+701,701,9/9/2024,Deposit,3512,,Chaem Luang,ATM
+702,702,2/23/2024,Transfer,3779,,San Miguel,Online
+703,703,7/21/2022,Withdrawal,2675,,Нераште,ATM
+704,704,1/24/2023,Transfer,1274,,Liancheng,Online
+705,705,1/7/2022,Withdrawal,4866,,Staropavlovskaya,ATM
+706,706,1/20/2023,Transfer,4174,,Puji,Online
+707,707,1/8/2023,Deposit,222,,Imbituva,Branch
+708,708,7/24/2024,Deposit,3248,,Villanueva,Online
+709,709,4/5/2023,Deposit,1268,,Taounza,Branch
+710,710,8/22/2024,Withdrawal,3982,,Hor,ATM
+711,711,8/3/2024,Transfer,2100,,Luhačovice,ATM
+712,712,5/26/2024,Deposit,30,,Petaling Jaya,Online
+713,713,12/22/2024,Deposit,1382,,Yuqian,Online
+714,714,1/21/2022,Withdrawal,366,,Wensu,Online
+715,715,12/18/2023,Withdrawal,1341,,Parakanpanjang,Branch
+716,716,8/20/2023,Withdrawal,2906,,Sinjār,Branch
+717,717,8/11/2024,Withdrawal,3989,,Spodnja Hajdina,Branch
+718,718,11/5/2023,Deposit,1491,,Pampa de los Guanacos,Online
+719,719,4/3/2024,Withdrawal,2042,,Seroa,ATM
+720,720,2/3/2024,Withdrawal,1141,,Quimilí,ATM
+721,721,8/15/2023,Deposit,2659,,Matelândia,ATM
+722,722,11/12/2023,Transfer,1708,,Nilanapo,ATM
+723,723,3/22/2022,Withdrawal,1323,,Želetava,Online
+724,724,4/8/2024,Transfer,711,,Carvalhal,Online
+725,725,2/29/2024,Transfer,1111,,Barrancabermeja,Branch
+726,726,1/19/2024,Withdrawal,2844,,كاف الجاع,ATM
+727,727,6/7/2022,Deposit,4405,,Bocowanti,Branch
+728,728,11/20/2022,Transfer,2312,,Arzila,Branch
+729,729,6/27/2023,Deposit,3866,,Komarno,Branch
+730,730,10/18/2024,Deposit,573,,Neryungri,ATM
+731,731,10/11/2024,Deposit,3310,,San Lorenzo,Online
+732,732,4/29/2023,Deposit,959,,Fujisawa,Branch
+733,733,2/25/2022,Transfer,982,,Santa Lucía,ATM
+734,734,8/29/2022,Deposit,608,,Sardasht,ATM
+735,735,1/12/2022,Transfer,4728,,Enhtal,ATM
+736,736,8/3/2024,Transfer,153,,União dos Palmares,Online
+737,737,12/13/2024,Transfer,4924,,Layu,Online
+738,738,11/10/2023,Withdrawal,4271,,Saint-Lin-Laurentides,Online
+739,739,6/18/2024,Deposit,340,,Laguna,Online
+740,740,4/5/2023,Transfer,2721,,Rumphi,Online
+741,741,12/28/2024,Withdrawal,3844,,San Benito,Online
+742,742,2/4/2023,Withdrawal,2810,,Camacupa,ATM
+743,743,2/21/2022,Withdrawal,3238,,Launceston,Branch
+744,744,7/8/2023,Withdrawal,1796,,La Mesa,Branch
+745,745,1/8/2022,Deposit,3415,,Wichit,ATM
+746,746,8/24/2022,Transfer,1116,,Bác Ái,Online
+747,747,10/31/2023,Withdrawal,599,,Xinchengzi,Branch
+748,748,9/6/2024,Deposit,3032,,Plaju,ATM
+749,749,3/31/2023,Deposit,2277,,Xiushan,ATM
+750,750,3/5/2024,Transfer,4852,,Czerniewice,Branch
+751,751,5/20/2024,Deposit,4886,,Rote,Online
+752,752,6/9/2023,Deposit,2597,,Staten Island,ATM
+753,753,8/11/2023,Deposit,2481,,Ngembul,Online
+754,754,2/28/2022,Transfer,2802,,Pravda,Branch
+755,755,1/20/2022,Withdrawal,535,,Kiernozia,Online
+756,756,12/28/2022,Transfer,2668,,Taungdwingyi,Online
+757,757,5/24/2024,Withdrawal,1901,,Bhātpāra Abhaynagar,ATM
+758,758,2/8/2022,Deposit,3261,,Ciudad Nueva,Online
+759,759,1/3/2024,Withdrawal,2686,,Valongo,Branch
+760,760,2/19/2022,Transfer,4489,,Kafir Qala,ATM
+761,761,3/3/2022,Withdrawal,2199,,Yuzhno-Sukhokumsk,Branch
+762,762,12/31/2024,Withdrawal,468,,São Vicente de Ferreira,ATM
+763,763,11/19/2024,Deposit,3263,,Palanas,ATM
+764,764,6/19/2023,Deposit,1607,,Guta,Branch
+765,765,11/18/2022,Withdrawal,2091,,Mevo horon,Online
+766,766,1/9/2022,Transfer,3165,,Cimanggu Girang,ATM
+767,767,1/9/2023,Withdrawal,2833,,Cigintung,Branch
+768,768,6/8/2024,Deposit,4467,,Pakokku,Branch
+769,769,9/2/2022,Deposit,3408,,Dalarik,Branch
+770,770,2/14/2023,Deposit,2432,,Borås,Branch
+771,771,7/17/2023,Withdrawal,4878,,Štoky,Branch
+772,772,1/2/2023,Withdrawal,4894,,Alcainça,ATM
+773,773,1/31/2023,Withdrawal,2186,,Zhengcun,Branch
+774,774,12/2/2024,Transfer,209,,Det Udom,Branch
+775,775,1/13/2023,Withdrawal,605,,Qingtang,Branch
+776,776,4/2/2024,Deposit,1794,,Petaling Jaya,Online
+777,777,8/24/2024,Withdrawal,2339,,Lazdijai,Online
+778,778,12/4/2024,Withdrawal,4120,,Hamilton,Online
+779,779,10/16/2024,Withdrawal,190,,Libacao,Branch
+780,780,4/26/2024,Transfer,2134,,Aragarças,ATM
+781,781,12/7/2023,Withdrawal,322,,Ōiso,Online
+782,782,10/22/2022,Transfer,3482,,Wuyang,ATM
+783,783,5/8/2022,Transfer,1664,,Gori,Branch
+784,784,9/5/2024,Deposit,2626,,Veselí nad Moravou,Branch
+785,785,7/29/2023,Withdrawal,1372,,Bang Racham,ATM
+786,786,4/18/2024,Deposit,3689,,Buy,ATM
+787,787,3/26/2023,Withdrawal,2183,,Bertoua,Branch
+788,788,11/22/2024,Transfer,4745,,Clermont-Ferrand,Online
+789,789,5/24/2023,Withdrawal,4513,,Thala,ATM
+790,790,3/29/2022,Transfer,1386,,Tarbes,Branch
+791,791,9/21/2023,Withdrawal,4486,,Leyuan,ATM
+792,792,1/29/2024,Withdrawal,3758,,Four Cross Roads,Online
+793,793,2/3/2024,Transfer,782,,Sagud-Bahley,Online
+794,794,12/12/2023,Deposit,4277,,Monteiro,ATM
+795,795,5/11/2024,Withdrawal,1716,,Itabaiana,Branch
+796,796,1/26/2024,Deposit,795,,Silago,Branch
+797,797,9/13/2024,Transfer,2525,,Huang’ao,ATM
+798,798,12/18/2024,Deposit,1510,,Syrostan,ATM
+799,799,4/1/2022,Transfer,1279,,Moosomin,Branch
+800,800,8/24/2023,Transfer,4542,,Stavanger,Branch
+801,801,12/17/2023,Transfer,3718,,Jargalant,ATM
+802,802,3/25/2023,Deposit,234,,Beira,ATM
+803,803,3/11/2023,Transfer,2155,,Sanhe,Branch
+804,804,4/11/2024,Withdrawal,2564,,Capitán Bermúdez,ATM
+805,805,3/11/2023,Transfer,1822,,Yanghong,Online
+806,806,9/13/2023,Withdrawal,2114,,Polazna,Branch
+807,807,3/10/2023,Withdrawal,4499,,Qingshui,ATM
+808,808,7/27/2022,Deposit,1088,,Bertoua,ATM
+809,809,8/23/2023,Withdrawal,2607,,Vũ Thư,Online
+810,810,7/10/2022,Transfer,2428,,Shiguai,Online
+811,811,11/9/2023,Transfer,3493,,Tambulig,Online
+812,812,4/15/2023,Deposit,3796,,Mizunami,Online
+813,813,1/20/2022,Transfer,1235,,Íasmos,Online
+814,814,5/2/2024,Deposit,4127,,Terny,Online
+815,815,6/5/2023,Withdrawal,1281,,Arshaluys,ATM
+816,816,8/17/2023,Deposit,908,,Utrecht (stad),Branch
+817,817,3/20/2024,Withdrawal,2878,,Gabahan,Online
+818,818,4/27/2023,Withdrawal,154,,Cauto Cristo,Branch
+819,819,1/18/2023,Withdrawal,3092,,Cukangpanjang,Online
+820,820,1/10/2023,Deposit,3336,,Mojolampir,ATM
+821,821,7/1/2023,Deposit,2182,,Ipauçu,Branch
+822,822,4/30/2022,Deposit,2870,,Xibër-Murrizë,Branch
+823,823,11/8/2024,Transfer,4770,,Komenda,Branch
+824,824,4/9/2023,Withdrawal,109,,Yunping,ATM
+825,825,12/10/2022,Deposit,1079,,Le Pontet,Branch
+826,826,3/29/2022,Deposit,463,,Estrela,Online
+827,827,4/18/2024,Transfer,1935,,Sekondi-Takoradi,Branch
+828,828,2/19/2022,Transfer,4935,,Khosta,Branch
+829,829,1/21/2023,Transfer,3310,,Saint Helier,Branch
+830,830,3/8/2024,Withdrawal,2767,,Albuquerque,ATM
+831,831,5/31/2023,Withdrawal,3371,,Xicheng,Online
+832,832,1/10/2024,Withdrawal,559,,Ḩawf,Online
+833,833,2/23/2022,Transfer,507,,Muramatsu,ATM
+834,834,3/20/2023,Withdrawal,2951,,Puncaksempur,Online
+835,835,1/13/2024,Withdrawal,488,,Ambelókipoi,Online
+836,836,5/31/2024,Withdrawal,221,,Aradac,ATM
+837,837,5/20/2023,Transfer,4828,,Belajen,Branch
+838,838,7/31/2022,Withdrawal,1282,,Brusyliv,ATM
+839,839,8/3/2023,Withdrawal,3036,,Fershampenuaz,Online
+840,840,6/5/2023,Deposit,1478,,Skövde,Branch
+841,841,5/28/2022,Withdrawal,1793,,Vasil’yevskiy Mokh,Online
+842,842,10/9/2022,Transfer,891,,Pamupukan,Online
+843,843,2/27/2022,Withdrawal,4924,,Gongju,ATM
+844,844,9/3/2023,Withdrawal,3190,,Rangmanten,Branch
+845,845,9/3/2022,Deposit,4182,,Undurkhaan,ATM
+846,846,8/7/2022,Deposit,1837,,Minshan,ATM
+847,847,1/16/2022,Deposit,2401,,Łopuszno,Branch
+848,848,5/3/2022,Deposit,1093,,Mabusag,Branch
+849,849,2/19/2024,Deposit,571,,Gulonggang,Online
+850,850,4/17/2022,Deposit,2579,,Manturovo,Online
+851,851,10/18/2023,Deposit,4949,,Acacías,Online
+852,852,6/22/2022,Withdrawal,4855,,Ermida,ATM
+853,853,4/9/2023,Withdrawal,1009,,Mirów,ATM
+854,854,12/20/2022,Deposit,3020,,Wąsosz,Online
+855,855,8/11/2024,Withdrawal,2761,,Saint-Quentin-en-Yvelines,Branch
+856,856,1/26/2023,Transfer,1490,,Palaió Fáliro,Branch
+857,857,1/15/2024,Withdrawal,3914,,Bukal Sur,ATM
+858,858,3/20/2024,Transfer,1025,,Pul-e Khumrī,Online
+859,859,5/1/2023,Transfer,1155,,Trondheim,ATM
+860,860,3/26/2024,Transfer,1340,,Santana,Branch
+861,861,9/18/2022,Deposit,4520,,Barranco de Loba,Online
+862,862,3/10/2024,Transfer,2382,,Handan,Online
+863,863,3/10/2023,Transfer,585,,Cotonou,ATM
+864,864,12/9/2022,Deposit,3623,,Ulricehamn,ATM
+865,865,12/12/2024,Transfer,930,,Xinxu,Branch
+866,866,11/10/2023,Transfer,4200,,Argithéa,ATM
+867,867,1/6/2024,Withdrawal,1238,,Janūb as Surrah,ATM
+868,868,10/16/2024,Deposit,4664,,Los Angeles,Online
+869,869,2/2/2022,Withdrawal,4066,,Yiqi,Online
+870,870,7/9/2023,Withdrawal,1292,,Colomiers,Branch
+871,871,12/19/2022,Withdrawal,4698,,Türkmenabat,Branch
+872,872,9/2/2024,Withdrawal,3965,,Libao,Branch
+873,873,6/30/2023,Deposit,142,,Jungutbatu Kaja Dua,Online
+874,874,9/5/2022,Deposit,3966,,San José de Río Tinto,Branch
+875,875,5/26/2024,Transfer,3045,,Tres Arroyos,Branch
+876,876,12/30/2022,Transfer,648,,Bestöbe,ATM
+877,877,5/24/2023,Deposit,1641,,Bobigny,ATM
+878,878,7/22/2023,Deposit,820,,Hasuda,Branch
+879,879,1/19/2023,Deposit,510,,Bantarmangu,Online
+880,880,3/9/2024,Withdrawal,2711,,São José,ATM
+881,881,11/6/2024,Withdrawal,4665,,Duru,Online
+882,882,2/13/2024,Deposit,492,,San Fernando,Branch
+883,883,4/28/2023,Withdrawal,971,,Na Wa,Branch
+884,884,10/14/2022,Deposit,2146,,Nangkasari,Online
+885,885,9/30/2024,Transfer,3778,,Arras,Online
+886,886,7/2/2023,Withdrawal,3400,,Buenos Aires,Branch
+887,887,7/28/2023,Withdrawal,2795,,Berlin,Branch
+888,888,2/18/2024,Transfer,231,,Youcheng,Online
+889,889,9/8/2023,Transfer,1414,,Sinait,ATM
+890,890,8/15/2022,Withdrawal,4505,,Cogreg Wetan,Online
+891,891,6/13/2022,Transfer,190,,Miaofengshan,ATM
+892,892,10/7/2024,Deposit,1110,,Iznoski,ATM
+893,893,1/14/2022,Transfer,1400,,Likiep,Branch
+894,894,5/19/2023,Transfer,2013,,Chico,Online
+895,895,3/16/2023,Withdrawal,914,,Solec Nad Wisłą,ATM
+896,896,10/30/2024,Transfer,1845,,Yanglinwei,Online
+897,897,5/19/2024,Deposit,2214,,Bantar Tengah,ATM
+898,898,8/30/2022,Deposit,4038,,Niederwaldkirchen,ATM
+899,899,4/16/2022,Withdrawal,1369,,Yanagawa,ATM
+900,900,7/24/2023,Withdrawal,1985,,Sadananya,Branch
+901,901,1/28/2024,Transfer,3105,,Sanzao,ATM
+902,902,12/20/2023,Withdrawal,15,,Uspenskoye,ATM
+903,903,6/20/2022,Deposit,3152,,Sandu,Branch
+904,904,5/3/2022,Deposit,1260,,Andou,Branch
+905,905,1/28/2023,Deposit,46,,Caluire-et-Cuire,Online
+906,906,11/25/2023,Withdrawal,4352,,Enskededalen,ATM
+907,907,12/30/2022,Deposit,4559,,Katunayaka,Online
+908,908,4/21/2023,Transfer,1974,,Hayan Hudong,ATM
+909,909,6/30/2022,Withdrawal,1472,,Bununu Dass,Branch
+910,910,11/7/2024,Deposit,1688,,Sanhe,Branch
+911,911,12/6/2024,Deposit,3894,,Halmstad,Branch
+912,912,5/31/2023,Withdrawal,342,,Baziqiao,Branch
+913,913,5/9/2022,Withdrawal,468,,Tōno,ATM
+914,914,7/15/2023,Deposit,1363,,Donabate,ATM
+915,915,12/11/2024,Withdrawal,2442,,Qinghua,Online
+916,916,2/5/2024,Deposit,4849,,Kawahmanuk,Branch
+917,917,6/3/2023,Withdrawal,2610,,Nal’chik,Branch
+918,918,11/30/2022,Transfer,3762,,San Rafael,ATM
+919,919,10/20/2024,Withdrawal,4439,,Malax,Branch
+920,920,10/24/2022,Withdrawal,3855,,Huanggexi,ATM
+921,921,5/12/2023,Withdrawal,500,,La Virginia,ATM
+922,922,6/13/2022,Withdrawal,3159,,Kristinehamn,ATM
+923,923,5/13/2024,Deposit,1346,,Lipovci,Branch
+924,924,6/28/2022,Withdrawal,2260,,Hisings Kärra,Online
+925,925,1/7/2022,Withdrawal,417,,Sumbergayam,Online
+926,926,8/5/2024,Withdrawal,4120,,Nortelândia,ATM
+927,927,8/26/2024,Deposit,1719,,Jitian,Online
+928,928,11/30/2024,Withdrawal,4404,,Chutove,Online
+929,929,11/10/2024,Deposit,2919,,Shanghuang,Branch
+930,930,4/17/2022,Deposit,1698,,Krajan Satu,Branch
+931,931,11/30/2022,Deposit,3378,,Kuching,ATM
+932,932,10/22/2023,Transfer,4341,,Chenqiao,Branch
+933,933,4/11/2022,Withdrawal,769,,Bressuire,ATM
+934,934,2/4/2023,Deposit,1444,,San Andrés,Branch
+935,935,4/24/2023,Deposit,2810,,Santo Ângelo,Branch
+936,936,11/10/2022,Deposit,3482,,Nizhniy Kurkuzhin,ATM
+937,937,3/12/2023,Withdrawal,2653,,Kananya,Online
+938,938,12/1/2022,Transfer,1803,,Nové Strašecí,ATM
+939,939,11/24/2022,Withdrawal,25,,Seattle,ATM
+940,940,4/7/2022,Transfer,3963,,Pabean,Online
+941,941,1/30/2023,Transfer,747,,Pitogo,Branch
+942,942,7/4/2023,Deposit,1190,,São Gabriel,ATM
+943,943,10/19/2024,Deposit,150,,Lo Prado,ATM
+944,944,7/29/2023,Deposit,2841,,Tha Mai,Branch
+945,945,3/23/2024,Withdrawal,4702,,Aborlan,ATM
+946,946,6/26/2023,Deposit,192,,Taganak,ATM
+947,947,11/6/2024,Withdrawal,600,,Las Piñas,ATM
+948,948,2/17/2024,Withdrawal,4943,,Lusong,Online
+949,949,6/26/2024,Deposit,1425,,Iznoski,Branch
+950,950,3/9/2023,Transfer,1200,,Embu,Online
+951,951,4/28/2022,Transfer,4988,,Machida,Branch
+952,952,2/19/2023,Withdrawal,1268,,Barengkok,ATM
+953,953,6/11/2023,Transfer,4321,,Tafí del Valle,Branch
+954,954,3/12/2022,Deposit,1417,,Volzhsk,Online
+955,955,10/24/2022,Transfer,232,,Glugu,ATM
+956,956,7/8/2023,Transfer,16,,Rukem,ATM
+957,957,5/6/2022,Deposit,2565,,Motygino,Branch
+958,958,8/14/2022,Deposit,2856,,Chimoio,Online
+959,959,1/2/2024,Withdrawal,3092,,Mulhouse,Branch
+960,960,12/8/2024,Transfer,4075,,Skënderbegas,ATM
+961,961,4/1/2024,Deposit,3318,,Jadowniki Mokre,ATM
+962,962,5/25/2023,Withdrawal,817,,Maundai,ATM
+963,963,9/24/2023,Deposit,1542,,Yaopi,Online
+964,964,6/25/2024,Deposit,3737,,İsmayıllı,Online
+965,965,8/5/2022,Transfer,4815,,Santa Bárbara,Branch
+966,966,6/13/2024,Withdrawal,4062,,Gala,ATM
+967,967,4/19/2022,Transfer,1436,,Okunoya,Branch
+968,968,5/12/2024,Transfer,2343,,Al Madān,Branch
+969,969,9/1/2022,Transfer,4927,,Mambusao,Branch
+970,970,1/27/2023,Withdrawal,603,,Dera Bugti,ATM
+971,971,11/21/2022,Withdrawal,352,,Himeji,Online
+972,972,6/28/2024,Deposit,3358,,Skien,Online
+973,973,8/11/2022,Withdrawal,2659,,Yartsevo,Online
+974,974,8/28/2022,Withdrawal,2760,,Thorpe,Branch
+975,975,1/5/2023,Transfer,154,,Stockholm,ATM
+976,976,2/27/2023,Transfer,4318,,Margabakti,Branch
+977,977,3/26/2022,Withdrawal,2775,,Jaworzynka,ATM
+978,978,7/7/2024,Deposit,1924,,Kościelec,ATM
+979,979,12/1/2023,Withdrawal,3881,,Dalianwan,Branch
+980,980,5/12/2022,Deposit,2731,,Bwizibwera,Branch
+981,981,2/28/2024,Withdrawal,4522,,Vila Chã,Branch
+982,982,12/9/2023,Withdrawal,1048,,Sihanoukville,Online
+983,983,5/3/2024,Deposit,394,,Monte Francisco,Online
+984,984,8/27/2024,Transfer,3115,,Gereneng,Branch
+985,985,6/30/2022,Withdrawal,1184,,Jajarkrajan,Branch
+986,986,5/1/2024,Deposit,2998,,Boka,Online
+987,987,3/14/2023,Withdrawal,480,,Palhoça,ATM
+988,988,7/15/2022,Withdrawal,319,,Síkinos,Branch
+989,989,1/19/2023,Withdrawal,319,,Hobscheid,ATM
+990,990,2/16/2024,Withdrawal,1516,,Nageswari,ATM
+991,991,12/22/2023,Transfer,3789,,Oganlima,Branch
+992,992,11/10/2022,Transfer,834,,Miami,ATM
+993,993,11/5/2022,Withdrawal,2244,,Boa Esperança,ATM
+994,994,10/3/2023,Withdrawal,3218,,Cileunyi,Online
+995,995,9/7/2023,Transfer,2211,,Boyuibe,ATM
+996,996,2/4/2024,Transfer,1705,,Hodkovice nad Mohelkou,Branch
+997,997,3/15/2023,Deposit,4906,,Alcala,ATM
+998,998,7/2/2024,Transfer,348,,Pueai Noi,Branch
+999,999,7/22/2024,Deposit,4803,,Gucheng,Branch
+1000,1000,8/8/2022,Withdrawal,1823,,Beverwijk,ATM
