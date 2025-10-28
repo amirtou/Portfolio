@@ -1,6 +1,6 @@
 # Personal Portfolio Website
 
-![Portfolio Screenshot](images/README.png)
+![Portfolio Screenshot](Images/README.png)
 
 
 
