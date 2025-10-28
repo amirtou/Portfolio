@@ -2,9 +2,20 @@
 
 ![Portfolio Screenshot](Images/README.jpg)
 
-## Overview
+## <img src="https://i.pinimg.com/originals/46/41/61/4641611401ecb508c625eebe448da663.gif" width="50"> Overview
 
-<img src="https://i.pinimg.com/originals/46/41/61/4641611401ecb508c625eebe448da663.gif" width="50">
+```Python
+
+info = {
+    "pronouns": ["he", "him"],
+    "programming_languages": ["Python", "Java", "C", "HTML", "CSS", "Prolog"],
+    "tools": ["Power BI", "SQL", "Git", "GitHub", "MS Office", "Google Sheets",
+              "DocuSign", "MLS", "Trebnet", "Lone Wolf", "Transaction Desk"],
+    "fields": ["Data Science", "Data Engineering", "Software Development", "AI Architecture"]
+}
+challenge: "I am on a continous learning path and more opportunities the better"
+
+```
 
 Welcome to my personal portfolio!  
 This website showcases my projects, technical skills, and background in **Computer Science, Cybersecurity, and Data Analysis**.  
