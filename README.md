@@ -1,6 +1,7 @@
 # Personal Portfolio Website
 
-![Portfolio Screenshot]()
+![Portfolio Screenshot](images/README.png)
+
 
 
 ## 🚀 Overview
