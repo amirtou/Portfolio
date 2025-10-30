@@ -1,6 +1,5 @@
 # 🌐 Amir Touraji
 
-![Portfolio Screenshot](Images/README.jpg)
 
 ## <img src="https://i.pinimg.com/originals/46/41/61/4641611401ecb508c625eebe448da663.gif" width="50"> Overview
 
