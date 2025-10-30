@@ -17,7 +17,7 @@ challenge: "I am on a continous learning path and more opportunities the better"
 ```
 
 Welcome to my personal portfolio!  
-This website showcases my projects, technical skills, and background in **Computer Science, Cybersecurity, and Data Analysis**.  
+This website showcases my projects, technical skills, and background in **Computer Science, Data Engineering, and Data Analysis**.  
 It is a simple, clean, and responsive website built using HTML, CSS, and basic JavaScript for interactive effects.
 
 The goal of this portfolio is to display my work clearly and professionally, especially for hiring managers and recruiters.
