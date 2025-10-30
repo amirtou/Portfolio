@@ -1,4 +1,4 @@
-# 🌐 Personal Portfolio Website
+# 🌐 Amir Touraji
 
 ![Portfolio Screenshot](Images/README.jpg)
 
