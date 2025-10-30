@@ -22,15 +22,6 @@ It is a simple, clean, and responsive website built using HTML, CSS, and basic J
 
 The goal of this portfolio is to display my work clearly and professionally, especially for hiring managers and recruiters.
 
----
-
-## Features
-
-- **Responsive Design** – Works on desktop, tablet, and mobile  
-- **Project Showcase** – Each project includes a description, tools used, and screenshots  
-- **Live Cursor Animation Effect** – Custom JavaScript user-interaction feature  
-- **Clean UI** – Minimalist and easy to navigate  
-- **Hosted on GitHub Pages** – Accessible through a public link
 
 ---
 
