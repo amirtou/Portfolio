@@ -46,10 +46,10 @@ A full business-insight dashboard including:
 - Filters and interactive charts
 
 This dashboard demonstrates:
-✔ Data cleaning  
-✔ DAX measures  
-✔ Data visualization  
-✔ Business-focused insights  
+- Data cleaning  
+- DAX measures  
+- Data visualization  
+- Business-focused insights  
 
 ---
 
