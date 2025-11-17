@@ -27,11 +27,13 @@ The goal of this portfolio is to display my work clearly and professionally, esp
 
 ## Technologies Used
 
-- **Languages:** HTML5, CSS3, JavaScript  
-- **Design:** Flexbox, Grid, modern responsive layout  
-- **Data Projects:** Python, Power BI, Pandas, SQL  
-- **Version Control:** Git + GitHub  
-- **Hosting:** GitHub Pages
+- **Data Analysis & Visualization:** Power BI (DAX), Tableau, Excel (Advanced: Pivot Tables, VLOOKUP, Power Query, Macros)
+- **Programming & Scripting:** Python (Pandas, NumPy, Scikit-Learn, Matplotlib, Seaborn), SQL (PostgreSQL, MySQL), R (Basic)
+- **Data Engineering:** ETL Pipeline Development, Data Warehousing, Data Modeling, Data Cleaning & Transformation
+- **Statistical Analysis:** Regression Analysis, Predictive Modeling, A/B Testing, Forecasting, Hypothesis Testing
+- **Business Tools:** QuickBooks, Salesforce CRM, Google Analytics, Git, Jupyter Notebook, VS Code
+- **Database Management:** PostgreSQL, MySQL, Query Optimization, Database Design
+- **Additional Languages:** English (Fluent), Farsi (Native), Spanish (Intermediate)
 
 ---
 
