@@ -11,8 +11,8 @@
 -- 1. Null / missing value audit across fact_transactions
 -- ----------------------------------------------------------
 SELECT
-    'fact_transactions'                         AS table_name,
-    COUNT(*)                                    AS total_rows,
+    'fact_transactions'AS table_name,
+    COUNT(*) AS total_rows,
     SUM(CASE WHEN customer_id IS NULL THEN 1 ELSE 0 END)   AS null_customer_id,
     SUM(CASE WHEN product_id IS NULL THEN 1 ELSE 0 END)    AS null_product_id,
     SUM(CASE WHEN date_id IS NULL THEN 1 ELSE 0 END)       AS null_date_id,
@@ -33,15 +33,12 @@ SELECT
     quantity,
     unit_price,
     discount_pct,
-    total_amount                                AS recorded_amount,
+    total_amountAS recorded_amount,
     ROUND(quantity * unit_price * (1 - discount_pct / 100.0), 2) AS expected_amount,
-    ROUND(
-        total_amount - (quantity * unit_price * (1 - discount_pct / 100.0)), 2
-    )                                           AS discrepancy
+    ROUND(total_amount - (quantity * unit_price * (1 - discount_pct / 100.0)), 2)AS discrepancy
 FROM fact_transactions
 WHERE ABS(
-    total_amount - (quantity * unit_price * (1 - discount_pct / 100.0))
-) > 0.01                                        -- Allow 1-cent rounding tolerance
+    total_amount - (quantity * unit_price * (1 - discount_pct / 100.0))) > 0.01                                        -- Allow 1-cent rounding tolerance
 ORDER BY ABS(discrepancy) DESC;
 
 
