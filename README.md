@@ -1,93 +1,52 @@
-# 🌐 Amir Touraji
+# Amir Touraji — Portfolio
 
+Data analyst working with financial data: SQL, Python, Power BI and bookkeeping.
 
-## <img src="https://i.pinimg.com/originals/46/41/61/4641611401ecb508c625eebe448da663.gif" width="50"> Overview
+**Live site:** https://amirtou.github.io/Portfolio/ (served from `index.html` via GitHub Pages)
 
-```Python
-
+```python
 info = {
     "pronouns": ["he", "him"],
-    "programming_languages": ["Python", "Java", "C", "HTML", "CSS", "Prolog"],
-    "tools": ["Power BI", "SQL", "Git", "GitHub", "MS Office", "Google Sheets",
-              "DocuSign", "MLS", "Trebnet", "Lone Wolf", "Transaction Desk"],
-    "fields": ["Data Science", "Data Engineering", "Software Development", "AI Architecture"]
+    "programming_languages": ["Python", "SQL", "Java", "C", "C++", "HTML", "CSS"],
+    "tools": ["Power BI", "Excel", "QuickBooks", "Git", "Databricks", "Azure Data Lake"],
+    "fields": ["Financial Data Analysis", "Business Intelligence", "Data Engineering", "Machine Learning"],
 }
-challenge: "I am on a continous learning path and more opportunities the better"
-
 ```
 
-Welcome to my personal portfolio!  
-This website showcases my projects, technical skills, and background in **Computer Science, Data Engineering, and Data Analysis**.  
-It is a simple, clean, and responsive website built using HTML, CSS, and basic JavaScript for interactive effects.
-
-The goal of this portfolio is to display my work clearly and professionally, especially for hiring managers and recruiters.
-
-
 ---
 
-## Technologies Used
+## Projects
 
-- **Data Analysis & Visualization:** Power BI (DAX), Tableau, Excel (Advanced: Pivot Tables, VLOOKUP, Power Query, Macros)
-- **Programming & Scripting:** Python (Pandas, NumPy, Scikit-Learn, Matplotlib, Seaborn), SQL (PostgreSQL, MySQL), R (Basic)
-- **Data Engineering:** ETL Pipeline Development, Data Warehousing, Data Modeling, Data Cleaning & Transformation
-- **Statistical Analysis:** Regression Analysis, Predictive Modeling, A/B Testing, Forecasting, Hypothesis Testing
-- **Business Tools:** QuickBooks, Salesforce CRM, Google Analytics, Git, Jupyter Notebook, VS Code
-- **Database Management:** PostgreSQL, MySQL, Query Optimization, Database Design
-- **Additional Languages:** English (Fluent), Farsi (Native), Spanish (Intermediate)
+| Project | What it shows | Stack | Folder |
+|---|---|---|---|
+| **Unified Customer Transactions** | Merges 1,000 checking and 1,000 credit-card records with customer profiles into 2,000 clean rows, models them as a star schema and analyses revenue, segments and churn | Python, SQL, Power BI | [`projects/unified-transactions`](projects/unified-transactions) |
+| **California House Price Model** | Linear regression baseline (R² 0.56) improved to R² 0.81 with a random forest | Python, scikit-learn | [`projects/house-price-predictor`](projects/house-price-predictor) |
+| **Vaccination Pattern Clustering** | K-means and PCA to group countries by vaccination, GDP and healthcare metrics (simulated data) | Python, scikit-learn | [`projects/covid-vaccination-analysis`](projects/covid-vaccination-analysis) |
+| **RANSAC Image Stitching** | FLANN feature matching and RANSAC homography estimation to align overlapping images | Python, OpenCV, Kornia | [`projects/ransac-image-stitching`](projects/ransac-image-stitching) |
 
----
+## Repository layout
 
-## Project Gallery
+```
+index.html              the portfolio website
+projects/<name>/        one folder per project: code, data, and its own README where needed
+Images/                 image assets
+```
 
-### Power BI Data Dashboard – Customer Spending Analysis
-A full business-insight dashboard including:
-- Total customers
-- Total spending (3M+)
-- Average customer income
-- Custom visuals and KPIs
-- Filters and interactive charts
+To add a project: create `projects/<project-name>/`, put the code and a short README in it, then add a card to the Projects section of `index.html`.
 
-This dashboard demonstrates:
-- Data cleaning  
-- DAX measures  
-- Data visualization  
-- Business-focused insights  
+## Skills
 
----
+- **Analysis & BI:** Power BI (DAX), Excel (Power Query, pivot tables), Tableau, regression and forecasting
+- **Data engineering:** SQL (PostgreSQL, MySQL), ETL pipelines, star-schema modelling, Azure Data Lake, Databricks
+- **Programming:** Python (pandas, NumPy, scikit-learn, Matplotlib, Seaborn), Java, C, C++
+- **Finance tools:** QuickBooks, ledger reconciliation, expense reporting, Salesforce CRM
+- **Languages:** English (fluent), Farsi (native), Spanish (intermediate)
 
-### COVID-19 Vaccination Data Analysis (Python + ML)
-- Analyzed global vaccination metrics across 20 countries  
-- Explored relationship between GDP, healthcare, and mortality  
-- Used clustering to identify similar country vaccination patterns  
-- Generated graphs and insight summaries
+## Education
 
----
+- Honours BSc in Computer Science (Data Science focus), York University, 2020–2025
+- In progress: AWS Data Engineering, Azure Data Scientist certifications
 
-### Computer Vision: Image Feature Matching
-Implemented feature detection and matching using:
-- **FLANN-Based Matcher**
-- **Harris corner detection**
-- **Homography transformation**
+## Contact
 
-Used feature points to map similarities between two images.
-
----
-
-### Image Processing | Edge & Seam Detection
-Applied:
-- Canny Edge Detection  
-- Seam Carving  
-- Sobel filters  
-
-Showcases understanding of low-level image processing.
-
----
-
-## 👤 About Me
-- Bachelor’s degree in Computer Science (Data Science)  
-- Experience with programming, data analysis, and front-end development  
-- Strong interest in data visualization, cybersecurity, and software development
-
----
-
-Thank you for visiting my portfolio!
+Amirreza.tou2025@gmail.com · [github.com/amirtou](https://github.com/amirtou)

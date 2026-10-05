@@ -10,6 +10,9 @@ A data analysis pipeline that cleans, matches, and consolidates transaction data
 - `Customer_Info.csv` - Customer demographic and account information
 - `Unifying_Transactions.ipynb` - Main analysis notebook
 - `Unified_Transactions.csv` - Output: cleaned and consolidated transaction data
+- `00_schema_setup.sql` - Star schema (fact and dimension tables) for the analysis
+- `01`–`05_*.sql` - Revenue, customer segmentation, churn, data quality audit, and window-function analyses
+- `Unified_Transactions.pbit` - Power BI dashboard template
 
 ## 🎯 Purpose
 
