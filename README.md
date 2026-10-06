@@ -19,6 +19,7 @@ info = {
 
 | Project | What it shows | Stack | Folder |
 |---|---|---|---|
+| **Credit Risk Model** | Predicts loan default on 4,455 bank applications (LightGBM Gini 0.71), picks the approval cut-off by expected profit, explains decisions with SHAP and builds an A–E credit scorecard | Python, scikit-learn, LightGBM, SHAP | [`projects/credit-risk-model`](projects/credit-risk-model) |
 | **Unified Customer Transactions** | Merges 1,000 checking and 1,000 credit-card records with customer profiles into 2,000 clean rows, models them as a star schema and analyses revenue, segments and churn | Python, SQL, Power BI | [`projects/unified-transactions`](projects/unified-transactions) |
 | **California House Price Model** | Linear regression baseline (R² 0.56) improved to R² 0.81 with a random forest | Python, scikit-learn | [`projects/house-price-predictor`](projects/house-price-predictor) |
 | **Vaccination Pattern Clustering** | K-means and PCA to group countries by vaccination, GDP and healthcare metrics (simulated data) | Python, scikit-learn | [`projects/covid-vaccination-analysis`](projects/covid-vaccination-analysis) |
@@ -38,7 +39,7 @@ To add a project: create `projects/<project-name>/`, put the code and a short RE
 
 - **Analysis & BI:** Power BI (DAX), Excel (Power Query, pivot tables), Tableau, regression and forecasting
 - **Data engineering:** SQL (PostgreSQL, MySQL), ETL pipelines, star-schema modelling, Azure Data Lake, Databricks
-- **Programming:** Python (pandas, NumPy, scikit-learn, Matplotlib, Seaborn), Java, C, C++
+- **Programming:** Python (pandas, NumPy, scikit-learn, LightGBM, SHAP, Matplotlib, Seaborn), Java, C, C++
 - **Finance tools:** QuickBooks, ledger reconciliation, expense reporting, Salesforce CRM
 - **Languages:** English (fluent), Farsi (native), Spanish (intermediate)
 

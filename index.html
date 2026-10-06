@@ -144,6 +144,13 @@ section.block { padding-block: 64px; border-top: 1px solid var(--rule); }
 .symbol { font: 500 12px/1 var(--font-data); letter-spacing: .06em; padding: 6px 8px; border-radius: 3px; background: var(--accent-soft); color: var(--accent); }
 .sector { font: 400 12px/1 var(--font-data); color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
 .project h3 { font: 600 22px/1.2 var(--font-display); }
+.project.featured { grid-column: 1 / -1; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); grid-template-rows: auto 1fr auto; column-gap: 40px; }
+.project.featured > * { grid-column: 1; }
+.project.featured > .chart { grid-column: 2; grid-row: 1 / span 3; align-self: center; }
+@media (max-width: 760px) {
+  .project.featured { grid-template-columns: 1fr; grid-template-rows: none; }
+  .project.featured > .chart { grid-column: 1; grid-row: auto; }
+}
 .project .desc { color: var(--muted); font-size: 15px; margin-top: 8px; }
 .chart { border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding-block: 14px; }
 .chart svg { display: block; width: 100%; height: auto; max-width: 100%; }
@@ -204,6 +211,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 
 <div class="tape" aria-hidden="true">
   <div class="tape-track">
+    <span class="tape-item"><b>CRDT</b> Gini 0.71 · default model</span>
     <span class="tape-item"><b>HSPX</b> R² 0.81 <span class="up">▲ +0.25</span></span>
     <span class="tape-item"><b>TXNU</b> 2,000 rows unified <span class="up">▲ 2 sources</span></span>
     <span class="tape-item"><b>SQL</b> 6 scripts · star schema</span>
@@ -211,6 +219,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     <span class="tape-item"><b>BOOK</b> QuickBooks ledgers reconciled</span>
     <span class="tape-item"><b>AWS-DE</b> certification in progress</span>
     <span class="tape-item"><b>YORKU</b> BSc Computer Science '25</span>
+    <span class="tape-item"><b>CRDT</b> Gini 0.71 · default model</span>
     <span class="tape-item"><b>HSPX</b> R² 0.81 <span class="up">▲ +0.25</span></span>
     <span class="tape-item"><b>TXNU</b> 2,000 rows unified <span class="up">▲ 2 sources</span></span>
     <span class="tape-item"><b>SQL</b> 6 scripts · star schema</span>
@@ -253,11 +262,11 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <span class="eyebrow">As of 2025</span>
       </div>
       <dl>
+        <div class="row"><dt>Credit risk model (Gini)</dt><dd>0.71</dd></div>
         <div class="row"><dt>Best model fit (house prices)</dt><dd>R² 0.81<span class="delta up">▲ 0.25</span></dd></div>
         <div class="row"><dt>Bank transactions unified</dt><dd>2,000</dd></div>
         <div class="row"><dt>Customers modelled</dt><dd>1,000</dd></div>
-        <div class="row"><dt>SQL analysis scripts</dt><dd>6</dd></div>
-        <div class="row"><dt>Current role</dt><dd>Bookkeeper</dd></div>
+                <div class="row"><dt>Current role</dt><dd>Bookkeeper</dd></div>
       </dl>
     </aside>
   </div>
@@ -280,6 +289,40 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       </div>
 
       <div class="projects">
+        <!-- Credit risk -->
+        <article class="project featured" data-cat="finance ml">
+          <div class="project-top"><span class="symbol">CRDT</span><span class="sector">Lending · ML · New</span></div>
+          <div>
+            <h3>Credit Risk Model</h3>
+            <p class="desc">Predicts loan default on 4,455 bank applications with logistic regression, random forest and LightGBM (Gini 0.71). Picks the approval cut-off by expected profit, explains decisions with SHAP and converts PD into a credit score with A–E grades.</p>
+          </div>
+          <div class="chart">
+            <svg viewBox="0 0 320 110" role="img" aria-label="Observed default rate by risk grade: E 72%, D 41%, C 15%, B 10%, A 2%">
+              <line x1="16" y1="86" x2="304" y2="86" stroke="var(--muted)"/>
+              <rect x="30" y="21.2" width="36" height="64.8" rx="2" fill="var(--down)"/>
+              <rect x="90" y="49.6" width="36" height="36.4" rx="2" fill="var(--muted)"/>
+              <rect x="150" y="72.2" width="36" height="13.8" rx="2" fill="var(--muted)"/>
+              <rect x="210" y="76.9" width="36" height="9.1" rx="2" fill="var(--accent)"/>
+              <rect x="270" y="84" width="36" height="2" rx="1" fill="var(--accent)"/>
+              <text x="48" y="15" text-anchor="middle" class="lbl-strong">72%</text>
+              <text x="108" y="43" text-anchor="middle" class="lbl-strong">41%</text>
+              <text x="168" y="66" text-anchor="middle" class="lbl-strong">15%</text>
+              <text x="228" y="71" text-anchor="middle" class="lbl-strong">10%</text>
+              <text x="288" y="78" text-anchor="middle" class="lbl-strong">2%</text>
+              <text x="48" y="102" text-anchor="middle">Grade E</text>
+              <text x="108" y="102" text-anchor="middle">D</text>
+              <text x="168" y="102" text-anchor="middle">C</text>
+              <text x="228" y="102" text-anchor="middle">B</text>
+              <text x="288" y="102" text-anchor="middle">A</text>
+            </svg>
+            <p class="chart-caption">Observed default rate by credit grade, test set</p>
+          </div>
+          <div class="project-foot">
+            <div class="tags"><span class="tag">Python</span><span class="tag">LightGBM</span><span class="tag">SHAP</span></div>
+            <a class="link" href="https://github.com/amirtou/Portfolio/tree/main/projects/credit-risk-model">View project →</a>
+          </div>
+        </article>
+
         <!-- Unified transactions -->
         <article class="project" data-cat="finance">
           <div class="project-top"><span class="symbol">TXNU</span><span class="sector">Banking · BI</span></div>
@@ -292,8 +335,8 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
               <rect x="10" y="62" width="56" height="30" rx="2" fill="var(--rule)"/>
               <rect x="86" y="62" width="56" height="30" rx="2" fill="var(--rule)"/>
               <rect x="226" y="32" width="72" height="60" rx="2" fill="var(--accent)"/>
-              <path d="M114 62 C 114 50, 190 58, 226 66" fill="none" stroke="var(--muted)" stroke-width="1.2" stroke-dasharray="3 3"/>
-              <path d="M38 62 C 38 34, 190 30, 226 48" fill="none" stroke="var(--muted)" stroke-width="1.2" stroke-dasharray="3 3"/>
+              <text x="76" y="82" text-anchor="middle" class="lbl-strong" style="font-size:16px">+</text>
+              <text x="184" y="82" text-anchor="middle" class="lbl-strong" style="font-size:16px">→</text>
               <text x="38" y="54" text-anchor="middle" class="lbl-strong">1,000</text>
               <text x="114" y="54" text-anchor="middle" class="lbl-strong">1,000</text>
               <text x="262" y="24" text-anchor="middle" class="lbl-strong">2,000</text>
