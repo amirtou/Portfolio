@@ -64,7 +64,7 @@ jupyter notebook
 ## Experience
 
 - **Operations & Account Support**, Levelwear, Richmond Hill, ON (Feb 2026 – present): SQL reconciliation of financial datasets, KYB/KYC review and corporate account onboarding, Excel dashboards tracking orders against targets
-- **Financial Data & Reporting Analyst**, Patinouva Texture Inc., Toronto, ON (Feb 2025 – Feb 2026): BI dashboards for sales, transactions and cash flow; root-cause analysis of statement discrepancies; automated reconciliation steps
+- **Financial Data & Reporting Analyst**, Patinova Texture Inc., Toronto, ON (Feb 2025 – Feb 2026): BI dashboards for sales, transactions and cash flow; root-cause analysis of statement discrepancies; automated reconciliation steps
 
 ## Education and certifications
 
