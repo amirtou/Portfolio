@@ -1,8 +1,8 @@
-# Amir Touraji | Data & Financial Analytics Portfolio
+# AmirReza Touraji | Data & Financial Analytics Portfolio
 
-Data analyst focused on **machine learning, financial data and business intelligence**. I build models and pipelines in Python and SQL and present results in Power BI. Computer Science graduate from York University, currently working as a bookkeeper.
+Operations and data analyst in Toronto focused on **financial data, machine learning and business intelligence**. I work in finance operations, reconciling large financial datasets with SQL and reviewing KYB/KYC documents for corporate onboarding. Outside work I build ML models and BI dashboards. Computer Science graduate from York University.
 
-**Website:** [amirtou.github.io/Portfolio](https://amirtou.github.io/Portfolio/) · **Email:** Amirreza.tou2025@gmail.com · **GitHub:** [@amirtou](https://github.com/amirtou)
+**Website:** [amirtou.github.io/Portfolio](https://amirtou.github.io/Portfolio/) · **Email:** amirreza.tou2025@gmail.com · **LinkedIn:** [linkedin.com/in/amirtou](https://www.linkedin.com/in/amirtou) · **GitHub:** [@amirtou](https://github.com/amirtou)
 
 ---
 
@@ -32,12 +32,12 @@ Each project folder has its own README with results, method and run instructions
 
 | Area | Tools |
 |---|---|
-| Machine learning | scikit-learn, LightGBM, SHAP, regression, classification, clustering, model evaluation |
-| Data analysis | Python (pandas, NumPy), Matplotlib, Seaborn, Jupyter |
-| Data engineering | SQL (PostgreSQL, MySQL), ETL, star-schema modelling, Azure Data Lake, Databricks |
-| Business intelligence | Power BI (DAX), Excel (Power Query, pivot tables), Tableau |
-| Finance | QuickBooks, ledger reconciliation, expense reporting, credit-risk metrics (PD, Gini, KS) |
-| Programming | Python, SQL, Java, C, C++, Git |
+| Data & analytics | SQL (PostgreSQL, MySQL), Python (pandas, NumPy), Excel (pivot tables, VLOOKUP, SUMIF, macros), data validation & QA |
+| Business intelligence | Power BI (DAX), Tableau, Metabase |
+| Machine learning | scikit-learn, LightGBM, SHAP, classification, regression, clustering, credit-risk metrics (PD, Gini, KS) |
+| Automation & AI | Claude (AI workflow automation), Apache Airflow, Docker, Git/GitHub |
+| Operations & compliance | KYB/KYC review, corporate account onboarding, FINTRAC recordkeeping, process documentation |
+| Finance | Financial reconciliation, sales and cash-flow reporting |
 
 ## Repository structure
 
@@ -61,7 +61,13 @@ pip install -r requirements.txt
 jupyter notebook
 ```
 
+## Experience
+
+- **Operations & Account Support**, Levelwear, Richmond Hill, ON (Feb 2026 – present): SQL reconciliation of financial datasets, KYB/KYC review and corporate account onboarding, Excel dashboards tracking orders against targets
+- **Financial Data & Reporting Analyst**, Patinouva Texture Inc., Toronto, ON (Feb 2025 – Feb 2026): BI dashboards for sales, transactions and cash flow; root-cause analysis of statement discrepancies; automated reconciliation steps
+
 ## Education and certifications
 
-- **Honours BSc, Computer Science** (Data Science focus), York University, 2020–2025
-- **In progress:** AWS Data Engineering, Microsoft Azure Data Scientist
+- **Honours BSc, Computer Science**, York University, 2025
+- **Investment Funds in Canada (IFIC)**, in progress
+- **Google:** Data Models and Pipelines; Foundations of Business Intelligence
