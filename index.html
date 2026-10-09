@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Amir Touraji Portfolio</title>
-<meta name="description" content="Amir Touraji — data analyst working with financial data, SQL, Python and Power BI.">
+<title>AmirReza Touraji Portfolio</title>
+<meta name="description" content="AmirReza Touraji: operations and data analyst in Toronto working with financial data, SQL, Python, Power BI and machine learning.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap">
@@ -114,7 +114,7 @@ header {
 .factsheet .row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding-block: 12px; border-bottom: 1px dashed var(--rule); }
 .factsheet .row:last-child { border-bottom: 0; padding-bottom: 0; }
 .factsheet dt { color: var(--muted); font-size: 14px; }
-.factsheet dd { margin: 0; font: 500 15px/1.2 var(--font-data); font-variant-numeric: tabular-nums; text-align: right; }
+.factsheet dd { margin: 0; font: 500 15px/1.2 var(--font-data); font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
 .delta { font-size: 12px; margin-left: 6px; }
 
 /* Sections */
@@ -203,6 +203,41 @@ section.block { padding-block: 64px; border-top: 1px solid var(--rule); }
 .copy-btn { border: 1px solid var(--rule); background: transparent; color: var(--ink); font: 500 13px/1 var(--font-body); padding: 8px 12px; border-radius: 4px; cursor: pointer; }
 .copy-btn:hover { border-color: var(--accent); }
 
+/* Timeline line and "also built" */
+.ledger { position: relative; }
+.ledger-line { position: absolute; left: 186px; top: 6px; bottom: 26px; width: 2px; background: var(--accent); transform-origin: top; opacity: .35; border-radius: 2px; }
+.entry { position: relative; }
+.entry::before { content: ""; position: absolute; left: 181px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--accent); }
+.entry:first-of-type::before { background: var(--accent); box-shadow: 0 0 0 5px var(--accent-soft); }
+.entry > div { padding-left: 24px; }
+@media (max-width: 640px) {
+  .ledger-line, .entry::before { display: none; }
+  .entry > div { padding-left: 0; }
+}
+.also { margin-top: 44px; }
+.also .group { font: 500 12px/1.4 var(--font-data); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+.also-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 640px) { .also-grid { grid-template-columns: 1fr; } }
+.also-item { border: 1px dashed var(--rule); border-radius: 6px; padding: 18px 20px; }
+.also-item strong { font: 600 17px/1.3 var(--font-display); }
+.also-item p { color: var(--muted); font-size: 15px; margin-top: 6px; }
+
+/* Motion helpers */
+.word { display: inline-block; }
+.project { position: relative; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+.project::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .3s ease;
+  background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 50%), color-mix(in srgb, var(--accent) 10%, transparent), transparent 60%);
+}
+.project:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--accent) 45%, var(--rule)); box-shadow: 0 14px 30px -18px color-mix(in srgb, var(--ink) 45%, transparent); }
+.project:hover::after { opacity: 1; }
+.btn { transition: background-color .2s ease, border-color .2s ease, transform .2s ease; }
+.btn:hover { transform: translateY(-1px); }
+@media (prefers-reduced-motion: reduce) {
+  .project, .btn { transition: none; }
+  .project:hover, .btn:hover { transform: none; }
+}
+
 footer { border-top: 1px solid var(--rule); padding-block: 26px; color: var(--muted); font: 400 12px/1.5 var(--font-data); }
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
 </style>
@@ -212,27 +247,29 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <div class="tape" aria-hidden="true">
   <div class="tape-track">
     <span class="tape-item"><b>CRDT</b> Gini 0.71 · default model</span>
-    <span class="tape-item"><b>HSPX</b> R² 0.81 <span class="up">▲ +0.25</span></span>
+    <span class="tape-item"><b>HSPX</b> R² 0.81 <span class="up">▲ +0.23</span></span>
     <span class="tape-item"><b>TXNU</b> 2,000 rows unified <span class="up">▲ 2 sources</span></span>
     <span class="tape-item"><b>SQL</b> 6 scripts · star schema</span>
     <span class="tape-item"><b>PBI</b> dashboard · DAX</span>
-    <span class="tape-item"><b>BOOK</b> QuickBooks ledgers reconciled</span>
-    <span class="tape-item"><b>AWS-DE</b> certification in progress</span>
+    <span class="tape-item"><b>RECON</b> SQL reconciliation · back office</span>
+    <span class="tape-item"><b>KYC</b> KYB/KYC account onboarding</span>
+    <span class="tape-item"><b>IFIC</b> Investment Funds in Canada · in progress</span>
     <span class="tape-item"><b>YORKU</b> BSc Computer Science '25</span>
     <span class="tape-item"><b>CRDT</b> Gini 0.71 · default model</span>
-    <span class="tape-item"><b>HSPX</b> R² 0.81 <span class="up">▲ +0.25</span></span>
+    <span class="tape-item"><b>HSPX</b> R² 0.81 <span class="up">▲ +0.23</span></span>
     <span class="tape-item"><b>TXNU</b> 2,000 rows unified <span class="up">▲ 2 sources</span></span>
     <span class="tape-item"><b>SQL</b> 6 scripts · star schema</span>
     <span class="tape-item"><b>PBI</b> dashboard · DAX</span>
-    <span class="tape-item"><b>BOOK</b> QuickBooks ledgers reconciled</span>
-    <span class="tape-item"><b>AWS-DE</b> certification in progress</span>
+    <span class="tape-item"><b>RECON</b> SQL reconciliation · back office</span>
+    <span class="tape-item"><b>KYC</b> KYB/KYC account onboarding</span>
+    <span class="tape-item"><b>IFIC</b> Investment Funds in Canada · in progress</span>
     <span class="tape-item"><b>YORKU</b> BSc Computer Science '25</span>
   </div>
 </div>
 
 <header>
   <nav class="wrap nav" aria-label="Main">
-    <a href="#top" class="brand">Amir Touraji<span>.</span></a>
+    <a href="#top" class="brand">AmirReza Touraji<span>.</span></a>
     <div class="nav-links">
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
@@ -247,9 +284,9 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <main id="top">
   <div class="wrap hero">
     <div>
-      <p class="eyebrow">Data analyst · Financial data &amp; BI</p>
+      <p class="eyebrow">Operations &amp; data analyst · Toronto</p>
       <h1>I turn raw transactions into numbers a <em>finance team</em> can trust.</h1>
-      <p class="lede">I'm Amir, a Computer Science graduate from York University. I clean and model financial data with SQL and Python, build Power BI dashboards on top of it, and keep the books at a manufacturing company.</p>
+      <p class="lede">I'm AmirReza, a York University Computer Science graduate working in finance operations. I reconcile large financial datasets with SQL, review KYB/KYC documents for corporate onboarding, build BI dashboards, and use machine learning to model credit risk.</p>
       <div class="cta">
         <a href="#projects" class="btn primary">See the projects</a>
         <a href="#contact" class="btn">Get in touch</a>
@@ -259,14 +296,13 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     <aside class="factsheet" aria-label="Key figures">
       <div class="factsheet-head">
         <h2>Key figures</h2>
-        <span class="eyebrow">As of 2025</span>
+        <span class="eyebrow">As of 2026</span>
       </div>
       <dl>
-        <div class="row"><dt>Credit risk model (Gini)</dt><dd>0.71</dd></div>
-        <div class="row"><dt>Best model fit (house prices)</dt><dd>R² 0.81<span class="delta up">▲ 0.25</span></dd></div>
-        <div class="row"><dt>Bank transactions unified</dt><dd>2,000</dd></div>
-        <div class="row"><dt>Customers modelled</dt><dd>1,000</dd></div>
-                <div class="row"><dt>Current role</dt><dd>Bookkeeper</dd></div>
+        <div class="row"><dt>Credit risk model (Gini)</dt><dd data-count="0.71" data-decimals="2">0.71</dd></div>
+        <div class="row"><dt>Best model fit (house prices)</dt><dd><span data-count="0.81" data-decimals="2" data-prefix="R² ">R² 0.81</span><span class="delta up">▲ 0.23</span></dd></div>
+        <div class="row"><dt>Bank transactions unified</dt><dd data-count="2000">2,000</dd></div>
+        <div class="row"><dt>Loan applications modelled</dt><dd data-count="4455">4,455</dd></div>
       </dl>
     </aside>
   </div>
@@ -357,17 +393,17 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
           <div class="project-top"><span class="symbol">HSPX</span><span class="sector">Real estate · ML</span></div>
           <div>
             <h3>California House Price Model</h3>
-            <p class="desc">Predicted median house values from the California Housing census data. A linear baseline reached R² 0.56; a scaled random-forest model lifted it to 0.81 on the 20% hold-out set.</p>
+            <p class="desc">Predicted median house values from the California Housing census data. A linear baseline reached R² 0.58; a random-forest model lifted it to 0.81 on the 20% hold-out set.</p>
           </div>
           <div class="chart">
-            <svg viewBox="0 0 320 96" role="img" aria-label="R squared: linear regression 0.56, random forest 0.81">
+            <svg viewBox="0 0 320 96" role="img" aria-label="R squared: linear regression 0.58, random forest 0.81">
               <line x1="110" y1="8" x2="110" y2="72" stroke="var(--rule)"/>
               <line x1="165" y1="8" x2="165" y2="72" stroke="var(--rule)" stroke-dasharray="2 3"/>
               <line x1="220" y1="8" x2="220" y2="72" stroke="var(--rule)" stroke-dasharray="2 3"/>
               <line x1="275" y1="8" x2="275" y2="72" stroke="var(--rule)" stroke-dasharray="2 3"/>
               <text x="0" y="29">Linear</text>
-              <rect x="110" y="16" width="123.2" height="18" rx="2" fill="var(--rule)"/>
-              <text x="239" y="29" class="lbl-strong">0.56</text>
+              <rect x="110" y="16" width="126.7" height="18" rx="2" fill="var(--rule)"/>
+              <text x="243" y="29" class="lbl-strong">0.58</text>
               <text x="0" y="61">Random forest</text>
               <rect x="110" y="48" width="178.2" height="18" rx="2" fill="var(--accent)"/>
               <text x="294" y="61" class="lbl-strong">0.81</text>
@@ -458,10 +494,10 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <p>The tools I use day to day, grouped by the part of the job they cover.</p>
       </div>
       <div class="skills">
-        <div><h3>Analysis &amp; BI</h3><ul><li>Power BI &amp; DAX</li><li>Excel: Power Query, pivots</li><li>Tableau</li><li>Forecasting &amp; regression</li></ul></div>
-        <div><h3>Data engineering</h3><ul><li>SQL: PostgreSQL, MySQL</li><li>ETL pipelines</li><li>Star-schema modelling</li><li>Azure Data Lake, Databricks</li></ul></div>
-        <div><h3>Programming</h3><ul><li>Python: pandas, NumPy</li><li>scikit-learn</li><li>Java, C, C++</li><li>Git &amp; GitHub</li></ul></div>
-        <div><h3>Finance tools</h3><ul><li>QuickBooks</li><li>Ledgers &amp; reconciliation</li><li>Expense reporting</li><li>Salesforce CRM</li></ul></div>
+        <div><h3>Data &amp; analytics</h3><ul><li>SQL: PostgreSQL, MySQL</li><li>Python: pandas, NumPy</li><li>Power BI (DAX), Tableau, Metabase</li><li>Excel: pivots, VLOOKUP, SUMIF, macros</li><li>Data validation &amp; QA</li></ul></div>
+        <div><h3>Machine learning</h3><ul><li>scikit-learn, LightGBM</li><li>SHAP explainability</li><li>Classification &amp; regression</li><li>Credit scoring: PD, Gini, KS</li></ul></div>
+        <div><h3>Automation &amp; AI</h3><ul><li>Claude workflow automation</li><li>Apache Airflow</li><li>Docker</li><li>Git &amp; GitHub</li></ul></div>
+        <div><h3>Finance &amp; compliance</h3><ul><li>Financial reconciliation</li><li>KYB/KYC review &amp; onboarding</li><li>FINTRAC recordkeeping</li><li>Sales &amp; cash-flow reporting</li></ul></div>
       </div>
     </div>
   </section>
@@ -473,43 +509,49 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
           <p class="eyebrow">Experience</p>
           <h2>Work history</h2>
         </div>
-        <p>Roles where I kept records accurate and turned them into reports people used.</p>
+        <p>Finance operations and reporting roles where accuracy matters: reconciling money, onboarding clients and keeping the numbers honest.</p>
       </div>
-      <div class="ledger">
+      <div class="ledger" id="ledger">
+        <span class="ledger-line" aria-hidden="true"></span>
         <div class="entry">
-          <p class="period">Feb 2025 – Present</p>
+          <p class="period">Feb 2026 – Present<br>Richmond Hill, ON</p>
           <div>
-            <h3>Bookkeeper &amp; Administrator <span class="badge">Current</span></h3>
+            <h3>Operations &amp; Account Support <span class="badge">Current</span></h3>
+            <p class="org">Levelwear</p>
+            <ul>
+              <li>Query and reconcile large financial datasets with SQL for back-office reconciliation, flagging and resolving discrepancies before they reach clients or finance.</li>
+              <li>Onboard and manage corporate and business accounts, reviewing KYB/KYC documents and articles of incorporation for completeness and accuracy.</li>
+              <li>Act as the go-to resource on account setup requirements, guiding stakeholders to the right structure and cutting onboarding delays.</li>
+              <li>Built dynamic Excel dashboards (pivot tables, VLOOKUP, SUMIF, macros) that track orders against company targets.</li>
+              <li>Coordinate order and payment scheduling, improving processing accuracy and reducing customer complaints.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="entry">
+          <p class="period">Feb 2025 – Feb 2026<br>Toronto, ON</p>
+          <div>
+            <h3>Financial Data &amp; Reporting Analyst</h3>
             <p class="org">Patinova Texture Inc.</p>
             <ul>
-              <li>Maintain ledgers and month-end reconciliations in QuickBooks.</li>
-              <li>Build expense reports and dashboards that show where costs are rising.</li>
-              <li>Automate repetitive data entry to cut down on reporting errors.</li>
+              <li>Built BI dashboards tracking sales performance, transaction activity, cash flow and operational metrics.</li>
+              <li>Investigated discrepancies in financial statements, traced root causes and put corrective controls in place.</li>
+              <li>Automated manual reconciliation steps, cutting reconciliation time and speeding up reporting.</li>
+              <li>Maintained process documentation and processed order payments.</li>
             </ul>
           </div>
         </div>
-        <div class="entry">
-          <p class="period">Sep 2023 – Dec 2023<br>Contract</p>
-          <div>
-            <h3>Administrative Assistant</h3>
-            <p class="org">York University</p>
-            <ul>
-              <li>Maintained database records for more than 200 students and faculty, keeping them accurate and confidential.</li>
-              <li>Pulled and organised records from internal systems to speed up circulation and reporting.</li>
-              <li>Provided technical and analytical support to the office.</li>
-            </ul>
+      </div>
+
+      <div class="also">
+        <h3 class="group">Also built</h3>
+        <div class="also-grid">
+          <div class="also-item">
+            <strong>AI workflow automation</strong>
+            <p>Used Claude to build automations and analysis workflows that cut manual reporting and data-cleaning work.</p>
           </div>
-        </div>
-        <div class="entry">
-          <p class="period">Feb 2022 – Dec 2022</p>
-          <div>
-            <h3>Merchandise Execution Associate</h3>
-            <p class="org">The Home Depot</p>
-            <ul>
-              <li>Checked inventory data against stock on the floor and flagged discrepancies to supervisors.</li>
-              <li>Updated inventory records in internal systems so reports stayed consistent.</li>
-              <li>Planned product placement to make restocking faster.</li>
-            </ul>
+          <div class="also-item">
+            <strong>Website &amp; e-commerce operation</strong>
+            <p>Designed and launched a website and online store end to end, from the site build to order and payment workflows.</p>
           </div>
         </div>
       </div>
@@ -521,23 +563,23 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       <div>
         <h3 class="group">Education</h3>
         <div class="cred">
-          <div><strong>Honours BSc, Computer Science</strong><p class="sub">York University · Data Science focus</p></div>
-          <span class="status num">2020 – 2025</span>
-        </div>
-        <div class="cred">
-          <div><strong>High School Diploma</strong></div>
-          <span class="status num">2019</span>
+          <div><strong>Honours BSc, Computer Science</strong><p class="sub">York University, Toronto</p></div>
+          <span class="status num">2025</span>
         </div>
       </div>
       <div>
         <h3 class="group">Certifications</h3>
         <div class="cred">
-          <div><strong>AWS Data Engineering</strong><p class="sub">Amazon Web Services</p></div>
+          <div><strong>Investment Funds in Canada (IFIC)</strong><p class="sub">Canadian Securities Institute</p></div>
           <span class="status">In progress</span>
         </div>
         <div class="cred">
-          <div><strong>Azure Data Scientist</strong><p class="sub">Microsoft</p></div>
-          <span class="status">In progress</span>
+          <div><strong>Data Models and Pipelines</strong><p class="sub">Google</p></div>
+          <span class="status">Completed</span>
+        </div>
+        <div class="cred">
+          <div><strong>Foundations of Business Intelligence</strong><p class="sub">Google</p></div>
+          <span class="status">Completed</span>
         </div>
       </div>
     </div>
@@ -547,13 +589,16 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     <div class="wrap contact">
       <div>
         <p class="eyebrow">Contact</p>
-        <h2>Looking for an analyst who knows the books?</h2>
-        <p>I'm open to data analyst, financial analyst and BI roles. Email is the fastest way to reach me.</p>
+        <h2>Looking for an analyst who knows finance operations?</h2>
+        <p>I'm open to data, operations and financial analyst roles, especially in fintech. Email or LinkedIn is the fastest way to reach me.</p>
       </div>
       <div class="contact-card">
         <div class="contact-line">
-          <div><p class="label">Email</p><p class="value" id="email">Amirreza.tou2025@gmail.com</p></div>
+          <div><p class="label">Email</p><p class="value" id="email">amirreza.tou2025@gmail.com</p></div>
           <button class="copy-btn" id="copyBtn" type="button">Copy</button>
+        </div>
+        <div class="contact-line">
+          <div><p class="label">LinkedIn</p><p class="value"><a href="https://www.linkedin.com/in/amirtou">linkedin.com/in/amirtou</a></p></div>
         </div>
         <div class="contact-line">
           <div><p class="label">GitHub</p><p class="value"><a href="https://github.com/amirtou">github.com/amirtou</a></p></div>
@@ -565,8 +610,8 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 
 <footer>
   <div class="wrap">
-    <span>© 2025 Amir Touraji</span>
-    <span>Built with HTML &amp; CSS · Hosted on GitHub Pages</span>
+    <span>© 2026 AmirReza Touraji</span>
+    <span>Built with HTML, CSS &amp; GSAP · Hosted on GitHub Pages</span>
   </div>
 </footer>
 
@@ -613,6 +658,137 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(email.textContent.trim()).then(function () { done('Copied'); }, fallback);
     } else { fallback(); }
+  });
+})();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+/* Motion layer. Content is fully visible without it; GSAP only animates in from that state. */
+(function () {
+  if (!window.gsap || !window.ScrollTrigger) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  gsap.registerPlugin(ScrollTrigger);
+  var ease = 'power3.out';
+
+  // Split the headline into words so they can rise in one after another
+  var h1 = document.querySelector('.hero h1');
+  (function split(node) {
+    Array.prototype.slice.call(node.childNodes).forEach(function (child) {
+      if (child.nodeType === 3) {
+        var frag = document.createDocumentFragment();
+        child.textContent.split(/(\s+)/).forEach(function (part) {
+          if (!part) return;
+          if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+          var w = document.createElement('span'); w.className = 'word'; w.textContent = part; frag.appendChild(w);
+        });
+        node.replaceChild(frag, child);
+      } else if (child.nodeType === 1) { split(child); }
+    });
+  })(h1);
+
+  // Count numbers up from zero
+  function countUp(el, delay) {
+    var target = parseFloat(el.dataset.count), dec = parseInt(el.dataset.decimals || '0', 10);
+    var prefix = el.dataset.prefix || '', obj = { v: 0 };
+    gsap.to(obj, { v: target, duration: 1.6, delay: delay || 0, ease: 'power2.out', onUpdate: function () {
+      el.textContent = prefix + obj.v.toLocaleString('en-US', { minimumFractionDigits: dec, maximumFractionDigits: dec });
+    } });
+  }
+
+  // Hero entrance
+  var tl = gsap.timeline({ defaults: { ease: ease } });
+  tl.from('.hero .eyebrow', { y: 12, opacity: 0, duration: .5 })
+    .from('.hero h1 .word', { yPercent: 60, opacity: 0, duration: .7, stagger: .045 }, '-=.2')
+    .from('.hero .lede', { y: 16, opacity: 0, duration: .6 }, '-=.45')
+    .from('.hero .cta .btn', { y: 12, opacity: 0, duration: .5, stagger: .08 }, '-=.35')
+    .from('.factsheet', { x: 30, opacity: 0, duration: .8 }, 0.25)
+    .from('.factsheet .row', { x: 16, opacity: 0, duration: .45, stagger: .07 }, 0.55);
+  document.querySelectorAll('.factsheet [data-count]').forEach(function (el, i) { countUp(el, 0.6 + i * 0.07); });
+
+  // Section headings
+  gsap.utils.toArray('.section-head').forEach(function (head) {
+    gsap.from(head.children, { y: 24, opacity: 0, duration: .7, ease: ease, stagger: .1,
+      scrollTrigger: { trigger: head, start: 'top 85%' } });
+  });
+
+  // Project cards rise in, then their charts draw
+  function animateChart(card) {
+    var svg = card.querySelector('.chart svg');
+    if (!svg) return;
+    gsap.from(svg.querySelectorAll('rect'), { scaleY: 0, transformOrigin: '50% 100%', duration: .8, ease: ease, stagger: .08 });
+    gsap.from(svg.querySelectorAll('circle'), { scale: 0, transformOrigin: '50% 50%', duration: .45, ease: 'back.out(2)', stagger: .025, delay: .15 });
+    gsap.from(svg.querySelectorAll('line, path'), { opacity: 0, duration: .6, delay: .2 });
+    gsap.from(svg.querySelectorAll('text'), { opacity: 0, y: 4, duration: .4, stagger: .03, delay: .35 });
+  }
+  // The house-price bars are horizontal, so they grow from the left
+  document.querySelectorAll('.project').forEach(function (card) {
+    if (card.querySelector('.symbol') && card.querySelector('.symbol').textContent === 'HSPX') card.dataset.horizontal = '1';
+  });
+  ScrollTrigger.batch('.project', {
+    start: 'top 88%', once: true,
+    onEnter: function (batch) {
+      gsap.from(batch, { y: 40, opacity: 0, duration: .8, ease: ease, stagger: .12, clearProps: 'transform,opacity' });
+      batch.forEach(function (card, i) {
+        gsap.delayedCall(.25 + i * .12, function () {
+          if (card.dataset.horizontal) {
+            gsap.from(card.querySelectorAll('.chart rect'), { scaleX: 0, transformOrigin: '0% 50%', duration: .9, ease: ease, stagger: .12 });
+            gsap.from(card.querySelectorAll('.chart text'), { opacity: 0, duration: .4, stagger: .03, delay: .3 });
+          } else { animateChart(card); }
+        });
+      });
+    }
+  });
+
+  // Cursor spotlight on project cards
+  document.querySelectorAll('.project').forEach(function (card) {
+    card.addEventListener('pointermove', function (e) {
+      var r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
+  });
+
+  // Re-animate cards when a filter changes
+  document.querySelectorAll('.chip').forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      gsap.fromTo('.project:not([hidden])', { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: .45, ease: ease, stagger: .06, clearProps: 'transform,opacity' });
+      ScrollTrigger.refresh();
+    });
+  });
+
+  // Skills columns
+  gsap.from('.skills > div', { y: 24, opacity: 0, duration: .6, ease: ease, stagger: .1,
+    scrollTrigger: { trigger: '.skills', start: 'top 85%' } });
+  gsap.from('.skills li', { x: -10, opacity: 0, duration: .4, ease: ease, stagger: .025, delay: .2,
+    scrollTrigger: { trigger: '.skills', start: 'top 85%' } });
+
+  // Work history: the timeline draws as you scroll, entries slide in
+  if (document.querySelector('.ledger-line')) {
+    gsap.fromTo('.ledger-line', { scaleY: 0 }, { scaleY: 1, duration: 1.6, ease: 'power2.inOut',
+      scrollTrigger: { trigger: '#ledger', start: 'top 80%' } });
+  }
+  gsap.utils.toArray('.entry').forEach(function (entry) {
+    gsap.from(entry.querySelectorAll('.period, h3, .org'), { x: -20, opacity: 0, duration: .6, ease: ease, stagger: .08,
+      scrollTrigger: { trigger: entry, start: 'top 82%' } });
+    gsap.from(entry.querySelectorAll('li'), { y: 10, opacity: 0, duration: .45, ease: ease, stagger: .06, delay: .2,
+      scrollTrigger: { trigger: entry, start: 'top 82%' } });
+  });
+  gsap.from('.also-item', { y: 20, opacity: 0, duration: .6, ease: ease, stagger: .12,
+    scrollTrigger: { trigger: '.also', start: 'top 88%' } });
+
+  // Credentials and contact
+  gsap.from('.cred', { y: 14, opacity: 0, duration: .5, ease: ease, stagger: .07,
+    scrollTrigger: { trigger: '.creds', start: 'top 85%' } });
+  gsap.from('.contact > *', { y: 24, opacity: 0, duration: .7, ease: ease, stagger: .15,
+    scrollTrigger: { trigger: '.contact', start: 'top 85%' } });
+
+  // Safety net: after a very fast scroll, play any reveal whose section is already on screen
+  ScrollTrigger.addEventListener('scrollEnd', function () {
+    ScrollTrigger.getAll().forEach(function (t) {
+      var anim = t.animation;
+      if (anim && anim.progress() === 0 && t.trigger && t.trigger.getBoundingClientRect().top < window.innerHeight) anim.play();
+    });
   });
 })();
 </script>
