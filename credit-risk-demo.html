@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Credit Risk Scorer</title>
+<meta name="description" content="Live demo: score a loan applicant with AmirReza Touraji's credit risk model. Get the probability of default, a credit score, a risk grade and the factors behind it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap">
+<style>
+/* Layout: a loan officer's screen. Application form on the left, a live decision panel on the right that stays in view. */
+:root {
+  --paper: #f3f6f5; --surface: #ffffff; --ink: #0f1c2b; --muted: #576677; --rule: #d3dcde;
+  --accent: #0b6b4c; --accent-soft: #e1efe9; --down: #b0412d; --down-soft: #f6e4df; --mid: #a8781d;
+  --font-display: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-data: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0b131c; --surface: #121d29; --ink: #e4ebee; --muted: #93a2b0; --rule: #233343;
+    --accent: #44c08f; --accent-soft: #15302a; --down: #e0806c; --down-soft: #3a211c; --mid: #d6a94a; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0b131c; --surface: #121d29; --ink: #e4ebee; --muted: #93a2b0; --rule: #233343;
+  --accent: #44c08f; --accent-soft: #15302a; --down: #e0806c; --down-soft: #3a211c; --mid: #d6a94a; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 16px/1.55 var(--font-body); -webkit-font-smoothing: antialiased; }
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+h1, h2, h3 { margin: 0; text-wrap: balance; }
+p { margin: 0; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-inline: 20px; }
+.num { font-family: var(--font-data); font-variant-numeric: tabular-nums; }
+.eyebrow { font: 500 12px/1.4 var(--font-data); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+
+header { border-bottom: 1px solid var(--rule); background: var(--paper); padding-top: env(safe-area-inset-top, 0px); }
+.nav { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 14px; }
+.back { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500; }
+.back:hover { color: var(--ink); }
+.brand { font: 600 18px/1 var(--font-display); }
+.theme-btn { border: 1px solid var(--rule); background: var(--surface); color: var(--ink); font: 500 12px/1 var(--font-data); padding: 8px 10px; border-radius: 4px; cursor: pointer; }
+
+.intro { padding-block: 44px 28px; display: grid; gap: 14px; max-width: 760px; }
+.intro h1 { font: 500 clamp(34px, 5vw, 54px)/1.05 var(--font-display); letter-spacing: -.02em; }
+.intro p { color: var(--muted); font-size: 17px; max-width: 62ch; }
+
+.app { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 24px; align-items: start; padding-bottom: 56px; }
+@media (max-width: 900px) { .app { grid-template-columns: 1fr; } }
+.card { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 24px; min-width: 0; }
+
+/* Form */
+.presets { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.presets span { width: 100%; }
+.chip { font: 500 13px/1 var(--font-body); padding: 9px 14px; border-radius: 999px; cursor: pointer; border: 1px solid var(--rule); background: var(--surface); color: var(--muted); }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 14px; }
+fieldset + fieldset { margin-top: 22px; padding-top: 20px; border-top: 1px solid var(--rule); }
+legend { font: 600 15px/1.2 var(--font-body); padding: 0; margin-bottom: 4px; }
+.grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 18px; }
+@media (max-width: 520px) { .grid2 { grid-template-columns: 1fr; } }
+.field { display: grid; gap: 6px; min-width: 0; }
+.field label { display: flex; justify-content: space-between; gap: 10px; font-size: 14px; color: var(--muted); }
+.field output { white-space: nowrap; font: 500 14px/1.2 var(--font-data); color: var(--ink); font-variant-numeric: tabular-nums; }
+input[type=range] { width: 100%; accent-color: var(--accent); margin: 0; }
+select { width: 100%; font: 400 15px/1.2 var(--font-body); color: var(--ink); background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 9px 10px; }
+.toggle { display: inline-flex; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; width: fit-content; }
+.toggle button { font: 500 14px/1 var(--font-body); padding: 9px 16px; border: 0; background: transparent; color: var(--muted); cursor: pointer; }
+.toggle button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.hint { font-size: 13px; color: var(--muted); }
+
+/* Result panel */
+.result { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 16px); display: grid; gap: 20px; }
+@media (max-width: 900px) { .result { position: static; } }
+.gauge-wrap { display: grid; justify-items: center; gap: 4px; }
+.gauge { width: 100%; max-width: 340px; height: auto; display: block; }
+.gauge text { font-family: var(--font-data); font-size: 10px; fill: var(--muted); }
+.score-line { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 2px; }
+.score { font: 600 52px/1 var(--font-data); font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+.grade { font: 600 18px/1 var(--font-data); padding: 7px 10px; border-radius: 6px; color: var(--surface); }
+.score-cap { font-size: 13px; color: var(--muted); text-align: center; }
+.decision { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 14px; align-items: center; padding: 14px 16px; border-radius: 8px; }
+.decision.approve { background: var(--accent-soft); }
+.decision.decline { background: var(--down-soft); }
+.decision .verdict { font: 600 20px/1 var(--font-display); }
+.decision.approve .verdict { color: var(--accent); }
+.decision.decline .verdict { color: var(--down); }
+.decision p { font-size: 14px; color: var(--muted); }
+.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.stat { border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; min-width: 0; }
+.stat .k { font: 500 11px/1.3 var(--font-data); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.stat .v { font: 500 18px/1.3 var(--font-data); font-variant-numeric: tabular-nums; margin-top: 4px; }
+.why h3 { font: 600 15px/1.2 var(--font-body); margin-bottom: 4px; }
+.why .hint { margin-bottom: 12px; }
+.bars { display: grid; gap: 8px; }
+.bar-row { display: grid; grid-template-columns: minmax(0, 11.5em) minmax(0, 1fr); gap: 10px; align-items: center; font-size: 13.5px; }
+.bar-row .name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.track { position: relative; height: 14px; }
+.track::before { content: ""; position: absolute; left: 50%; top: -3px; bottom: -3px; width: 1px; background: var(--muted); opacity: .5; }
+.fill { position: absolute; top: 0; height: 100%; border-radius: 3px; transition: left .45s ease, width .45s ease, background-color .3s; }
+.legend { display: flex; justify-content: space-between; font: 400 11.5px/1 var(--font-data); color: var(--muted); margin-top: 6px; padding-left: calc(11.5em + 10px); }
+
+/* Method */
+.method { border-top: 1px solid var(--rule); padding-block: 48px; }
+.method h2 { font: 500 clamp(26px, 3.4vw, 34px)/1.15 var(--font-display); margin-top: 8px; }
+.steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; margin-top: 26px; }
+@media (max-width: 760px) { .steps { grid-template-columns: 1fr; gap: 20px; } }
+.steps h3 { font: 600 17px/1.3 var(--font-display); margin-bottom: 6px; }
+.steps p { color: var(--muted); font-size: 15px; }
+.metrics { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+.metric { font: 500 13px/1 var(--font-data); padding: 8px 10px; border-radius: 4px; background: var(--accent-soft); color: var(--accent); }
+.note { margin-top: 22px; font-size: 13px; color: var(--muted); max-width: 75ch; }
+footer { border-top: 1px solid var(--rule); padding-block: 22px; color: var(--muted); font: 400 12px/1.5 var(--font-data); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; }
+@media (prefers-reduced-motion: reduce) { .fill { transition: none; } }
+</style>
+</head>
+<body>
+<header>
+  <nav class="wrap nav" aria-label="Main">
+    <a class="back" href="./#projects">← Back to portfolio</a>
+    <span class="brand">Credit Risk Scorer</span>
+    <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch colour theme">Dark</button>
+  </nav>
+</header>
+
+<main>
+  <section class="wrap intro">
+    <p class="eyebrow">Live demo · Credit risk model</p>
+    <h1>Would this loan be approved?</h1>
+    <p>Change the applicant's details and the model rescores the loan instantly. It estimates the probability of default, converts it into a credit score and grade, and shows which factors pushed the risk up or down. It was trained on 4,455 real consumer loans from a Spanish bank.</p>
+  </section>
+
+  <div class="wrap app">
+    <form class="card" id="form" autocomplete="off">
+      <div class="presets" role="group" aria-label="Example applicants">
+        <span class="eyebrow">Try an example applicant</span>
+        <button class="chip" type="button" data-preset="steady" aria-pressed="true">Steady home-owner</button>
+        <button class="chip" type="button" data-preset="renter" aria-pressed="false">First-time renter</button>
+        <button class="chip" type="button" data-preset="risky" aria-pressed="false">Freelancer with arrears</button>
+      </div>
+
+      <fieldset>
+        <legend>Applicant</legend>
+        <div class="grid2">
+          <div class="field"><label for="age">Age <output for="age" id="age_out"></output></label><input type="range" id="age" min="18" max="70" step="1"></div>
+          <div class="field"><label for="seniority">Years with current employer <output id="seniority_out"></output></label><input type="range" id="seniority" min="0" max="40" step="1"></div>
+          <div class="field"><label for="job">Employment</label>
+            <select id="job"><option value="fixed">Permanent</option><option value="part-time">Part-time</option><option value="freelance">Freelance</option><option value="other">Other</option></select></div>
+          <div class="field"><label for="home">Housing</label>
+            <select id="home"><option value="owner">Owns home</option><option value="rent">Rents</option><option value="parents">Lives with parents</option><option value="private">Private arrangement</option><option value="other">Other</option></select></div>
+          <div class="field"><label for="marital">Marital status</label>
+            <select id="marital"><option value="single">Single</option><option value="married">Married</option><option value="separated">Separated</option><option value="divorced">Divorced</option><option value="widow">Widowed</option></select></div>
+          <div class="field"><span class="hint" id="arrears_label">Previous arrears on record?</span>
+            <div class="toggle" role="group" aria-labelledby="arrears_label">
+              <button type="button" id="arrears_no" aria-pressed="true">No</button><button type="button" id="arrears_yes" aria-pressed="false">Yes</button>
+            </div></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Finances</legend>
+        <div class="grid2">
+          <div class="field"><label for="income">Monthly income <output id="income_out"></output></label><input type="range" id="income" min="0" max="500" step="5"></div>
+          <div class="field"><label for="expenses">Monthly expenses <output id="expenses_out"></output></label><input type="range" id="expenses" min="35" max="180" step="1"></div>
+          <div class="field"><label for="assets">Assets <output id="assets_out"></output></label><input type="range" id="assets" min="0" max="60000" step="500"></div>
+          <div class="field"><label for="debt">Other debt <output id="debt_out"></output></label><input type="range" id="debt" min="0" max="10000" step="100"></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Loan</legend>
+        <div class="grid2">
+          <div class="field"><label for="loan_amount">Loan amount <output id="loan_amount_out"></output></label><input type="range" id="loan_amount" min="100" max="5000" step="50"></div>
+          <div class="field"><label for="item_price">Price of item financed <output id="item_price_out"></output></label><input type="range" id="item_price" min="100" max="11000" step="50"></div>
+          <div class="field"><label for="term_months">Term</label>
+            <select id="term_months"><option value="12">12 months</option><option value="24">24 months</option><option value="36">36 months</option><option value="48">48 months</option><option value="60">60 months</option><option value="72">72 months</option></select></div>
+        </div>
+        <p class="hint">Money values use the dataset's own scale. The median applicant earns 120 a month and borrows 1,000.</p>
+      </fieldset>
+    </form>
+
+    <aside class="card result" aria-live="polite" aria-label="Model result">
+      <div class="gauge-wrap">
+        <svg class="gauge" viewBox="-14 -6 328 166" role="img" aria-label="Credit score gauge" id="gauge"></svg>
+        <div class="score-line"><span class="score" id="score">—</span><span class="grade" id="grade">—</span></div>
+        <p class="score-cap">Credit score · 600 = 50-to-1 odds of repaying · +20 points doubles the odds</p>
+      </div>
+
+      <div class="decision" id="decision">
+        <span class="verdict" id="verdict">—</span>
+        <p id="decision_text"></p>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><p class="k">Default risk</p><p class="v" id="pd">—</p></div>
+        <div class="stat"><p class="k">Loan-to-value</p><p class="v" id="ltv">—</p></div>
+        <div class="stat"><p class="k">Payment / income</p><p class="v" id="pti">—</p></div>
+      </div>
+
+      <div class="why">
+        <h3>What moved the score</h3>
+        <p class="hint">Each factor's effect compared with an average applicant.</p>
+        <div class="bars" id="bars"></div>
+        <div class="legend"><span>← lowers risk</span><span>raises risk →</span></div>
+      </div>
+    </aside>
+  </div>
+
+  <section class="method">
+    <div class="wrap">
+      <p class="eyebrow">How it works</p>
+      <h2>From application to decision</h2>
+      <div class="steps">
+        <div><h3>1. Credit ratios</h3><p>The raw application becomes the ratios lenders use: loan-to-value, payment-to-income, expenses-to-income and net worth. Skewed amounts are log-scaled.</p></div>
+        <div><h3>2. Probability of default</h3><p>A logistic regression trained on 3,563 loans and tested on 891 unseen ones estimates the chance this loan defaults. It is the same fitted model as in the analysis notebook, running in your browser.</p></div>
+        <div><h3>3. Profit-based decision</h3><p>The model approves the loan when default risk is below <span class="num" id="cut_text">19%</span>. That cut-off maximised expected profit, assuming 60% of a defaulted loan is lost and good loans earn a 15% margin.</p></div>
+      </div>
+      <div class="metrics" id="metrics"></div>
+      <p class="note">This is a portfolio demonstration built on a public research dataset. It is not a real credit product and makes no lending decisions.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 AmirReza Touraji</span>
+    <a href="./">amirtou.github.io/Portfolio</a>
+  </div>
+</footer>
+
+<script>
+var MODEL = {"intercept":0.1369859135,"numeric":{"seniority":{"coef":-0.5810509621,"median":5.0,"mean":8.055290486,"std":8.190376324,"transform":"none"},"term_months":{"coef":-0.3323351543,"median":48.0,"mean":46.49957901,"std":14.64397153,"transform":"none"},"age":{"coef":0.05285678687,"median":36.0,"mean":37.01908504,"std":10.90150198,"transform":"none"},"expenses":{"coef":0.06152900079,"median":3.951243719,"mean":3.980588212,"std":0.3268575965,"transform":"log1p"},"income":{"coef":-0.3979152867,"median":4.779123493,"mean":4.469485657,"std":1.349195773,"transform":"log1p"},"assets":{"coef":-0.3241162334,"median":8.006700845,"mean":5.523087393,"std":4.195439596,"transform":"log1p"},"debt":{"coef":0.2104716236,"median":0.0,"mean":1.214775754,"std":2.712007185,"transform":"log1p"},"loan_amount":{"coef":0.08779543193,"median":6.908754779,"mean":6.829366372,"std":0.5105996769,"transform":"log1p"},"item_price":{"coef":0.5067649909,"median":7.244941546,"mean":7.202457794,"std":0.4239509025,"transform":"log1p"},"loan_to_value":{"coef":0.8753506198,"median":0.7731958763,"mean":0.7268355026,"std":0.2044490897,"transform":"none"},"monthly_payment":{"coef":-0.4464683029,"median":3.083437854,"mean":3.112032473,"std":0.4456538929,"transform":"log1p"},"payment_to_income":{"coef":0.03418210551,"median":0.1673428267,"mean":0.2065255058,"std":0.181300656,"transform":"none"},"expenses_to_income":{"coef":0.3849186423,"median":0.4268292683,"mean":0.4921084544,"std":0.3519738622,"transform":"none"},"net_worth":{"coef":-0.09031791993,"median":8.006700845,"mean":5.429664641,"std":4.173893018,"transform":"slog"}},"categorical":{"home":{"ignore":0.6723015596,"other":0.229558341,"owner":-0.3636704687,"parents":-0.5483742809,"private":0.3098299288,"rent":-0.2128289775,"unknown":0.6723015596},"marital":{"divorced":-0.03713265372,"married":-0.4259354656,"separated":0.7662167272,"single":-0.1274555708,"unknown":-0.1020465723,"widow":0.01316963752},"has_arrears_record":{"no":-0.8116497756,"yes":0.898465878},"job":{"fixed":-0.6019525757,"freelance":-0.2467197939,"other":0.0125802777,"part-time":0.7771934291,"unknown":0.1457147652}},"scorecard":{"pdo":20,"base_score":600,"base_odds":50,"grade_edges":[369.0,485.0,516.0,539.0,565.0,658.0],"grade_default_rates":{"E":0.7624309392,"D":0.3461538462,"C":0.1560693642,"B":0.1086956522,"A":0.01754385965}},"cutoff":0.19,"lgd":0.6,"margin":0.15,"ranges":{"seniority":[0.0,5.0,35.0],"age":[20.0,36.0,63.0],"income":[0.0,120.0,429.62],"expenses":[35.0,51.0,106.47],"assets":[0.0,3000.0,50000.0],"debt":[0.0,0.0,4782.5],"loan_amount":[200.0,1000.0,2500.0],"item_price":[375.0,1400.0,3559.47]},"metrics":{"ROC-AUC":0.8517617032,"Gini":0.7035234064,"KS":0.5661167829,"PR-AUC":0.7135392739,"Brier":0.1320661861},"cat_mean":{"home":-0.2774553706,"marital":-0.3156720888,"has_arrears_record":-0.5148560171,"job":-0.3563951407}};
+// Logistic-regression credit scorer ported from the notebook's fitted scikit-learn pipeline.
+function makeScorer(M) {
+  const tf = (t, v) => t === 'log1p' ? Math.log1p(Math.max(v, 0)) : t === 'slog' ? Math.sign(v) * Math.log1p(Math.abs(v)) : v;
+  function features(a) {
+    const f = Object.assign({}, a);
+    const nz = x => (x === null || x === undefined || Number.isNaN(x)) ? NaN : x;
+    f.loan_to_value = f.loan_amount / f.item_price;
+    f.monthly_payment = f.loan_amount / f.term_months;
+    const inc = (f.income === 0 || f.income == null) ? NaN : f.income;
+    f.payment_to_income = f.monthly_payment / inc;
+    f.expenses_to_income = f.expenses / inc;
+    f.net_worth = nz(f.assets) - nz(f.debt);
+    return f;
+  }
+  function score(app) {
+    const f = features(app);
+    let z = M.intercept; const parts = [];
+    for (const [name, p] of Object.entries(M.numeric)) {
+      let v = f[name];
+      if (v === null || v === undefined || !Number.isFinite(v)) v = NaN;
+      v = tf(p.transform, v);
+      if (!Number.isFinite(v)) v = p.median;            // the imputer runs after the log transform
+      const c = p.coef * (v - p.mean) / p.std; z += c; parts.push([name, c]);
+    }
+    for (const [name, table] of Object.entries(M.categorical)) {
+      const c = table[app[name]] !== undefined ? table[app[name]] : 0; z += c; parts.push([name, c]);
+    }
+    const pd = 1 / (1 + Math.exp(-z));
+    const s = M.scorecard, factor = s.pdo / Math.LN2, offset = s.base_score - factor * Math.log(s.base_odds);
+    const pc = Math.min(Math.max(pd, 1e-4), 1 - 1e-4);
+    const sc = Math.round(offset + factor * Math.log((1 - pc) / pc));
+    const e = s.grade_edges;
+    const grade = sc > e[4] ? 'A' : sc > e[3] ? 'B' : sc > e[2] ? 'C' : sc > e[1] ? 'D' : 'E';
+    return { pd, score: sc, grade, approve: pd < M.cutoff, parts, features: f };
+  }
+  return { score, features };
+}
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+(function () {
+  var root = document.documentElement, themeBtn = document.getElementById('themeBtn');
+  function theme() { var t = root.getAttribute('data-theme'); return t || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); }
+  function label() { themeBtn.textContent = theme() === 'dark' ? 'Light' : 'Dark'; }
+  try { var saved = localStorage.getItem('theme'); if (saved) root.setAttribute('data-theme', saved); } catch (e) {}
+  label();
+  themeBtn.addEventListener('click', function () {
+    var n = theme() === 'dark' ? 'light' : 'dark'; root.setAttribute('data-theme', n);
+    try { localStorage.setItem('theme', n); } catch (e) {}
+    label(); drawGauge(); update();
+  });
+
+  var scorer = makeScorer(MODEL);
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var PRESETS = {
+    steady: { age: 45, seniority: 12, job: 'fixed', home: 'owner', marital: 'married', has_arrears_record: 'no', income: 180, expenses: 60, assets: 8000, debt: 0, loan_amount: 900, item_price: 1500, term_months: 36 },
+    renter: { age: 26, seniority: 2, job: 'fixed', home: 'rent', marital: 'single', has_arrears_record: 'no', income: 130, expenses: 55, assets: 0, debt: 0, loan_amount: 1000, item_price: 1250, term_months: 48 },
+    risky: { age: 24, seniority: 1, job: 'freelance', home: 'rent', marital: 'single', has_arrears_record: 'yes', income: 90, expenses: 75, assets: 0, debt: 0, loan_amount: 1400, item_price: 1450, term_months: 60 }
+  };
+  var NAMES = { seniority: 'Years with employer', term_months: 'Loan term', age: 'Age', expenses: 'Monthly expenses', income: 'Income',
+    assets: 'Assets', debt: 'Other debt', loan_amount: 'Loan amount', item_price: 'Item price', loan_to_value: 'Loan-to-value',
+    monthly_payment: 'Monthly payment', payment_to_income: 'Payment-to-income', expenses_to_income: 'Expenses-to-income',
+    net_worth: 'Net worth', home: 'Housing', marital: 'Marital status', has_arrears_record: 'Arrears record', job: 'Employment type' };
+  var RANGES = ['age', 'seniority', 'income', 'expenses', 'assets', 'debt', 'loan_amount', 'item_price'];
+  var SELECTS = ['job', 'home', 'marital', 'term_months'];
+  var arrears = 'no';
+  var fmt = function (n) { return Math.round(n).toLocaleString('en-US'); };
+  var css = function (v) { return getComputedStyle(root).getPropertyValue(v).trim(); };
+
+  // Gauge geometry: a half circle from score 380 (left) to 660 (right), banded by the A–E grade edges
+  var MIN = 380, MAX = 660, CX = 150, CY = 150, R = 118;
+  var edges = MODEL.scorecard.grade_edges;
+  function pt(score, r) { var t = Math.PI * (1 - (Math.min(Math.max(score, MIN), MAX) - MIN) / (MAX - MIN)); return [CX + r * Math.cos(t), CY - r * Math.sin(t)]; }
+  function arc(a, b, r) { var p = pt(a, r), q = pt(b, r); return 'M' + p[0].toFixed(1) + ' ' + p[1].toFixed(1) + ' A' + r + ' ' + r + ' 0 0 1 ' + q[0].toFixed(1) + ' ' + q[1].toFixed(1); }
+  var GRADE_COLORS = function () { return { E: css('--down'), D: css('--mid'), C: css('--muted'), B: css('--accent'), A: css('--accent') }; };
+  function drawGauge() {
+    var g = document.getElementById('gauge'), c = GRADE_COLORS();
+    var bands = [[MIN, edges[1], 'E'], [edges[1], edges[2], 'D'], [edges[2], edges[3], 'C'], [edges[3], edges[4], 'B'], [edges[4], MAX, 'A']];
+    var s = '';
+    bands.forEach(function (b, i) {
+      s += '<path d="' + arc(b[0] + (i ? 1.2 : 0), b[1] - (i < 4 ? 1.2 : 0), R) + '" fill="none" stroke="' + c[b[2]] + '" stroke-width="16" opacity="' + (b[2] === 'A' ? 1 : .8) + '"/>';
+      var m = pt((b[0] + b[1]) / 2, R - 26); s += '<text x="' + m[0].toFixed(1) + '" y="' + (m[1] + 3).toFixed(1) + '" text-anchor="middle">' + b[2] + '</text>';
+    });
+    [MIN, 500, 600, MAX].forEach(function (v) { var p = pt(v, R + 22); s += '<text x="' + p[0].toFixed(1) + '" y="' + (p[1] + 3).toFixed(1) + '" text-anchor="middle">' + v + '</text>'; });
+    s += '<g id="needle"><line x1="' + CX + '" y1="' + CY + '" x2="' + CX + '" y2="' + (CY - R + 44) + '" stroke="' + css('--ink') + '" stroke-width="3" stroke-linecap="round"/>' +
+         '<circle cx="' + CX + '" cy="' + CY + '" r="7" fill="' + css('--ink') + '"/></g>';
+    g.innerHTML = s;
+    needleAngle = null;
+  }
+  var needleAngle = null, shownScore = null;
+  function setNeedle(score) {
+    var angle = (Math.min(Math.max(score, MIN), MAX) - MIN) / (MAX - MIN) * 180 - 90;
+    var n = document.getElementById('needle');
+    if (window.gsap && !reduce) {
+      gsap.to(n, { rotation: angle, svgOrigin: CX + ' ' + CY, duration: needleAngle === null ? 1.1 : .6, ease: 'power3.out' });
+    } else { n.setAttribute('transform', 'rotate(' + angle + ' ' + CX + ' ' + CY + ')'); }
+    needleAngle = angle;
+  }
+  function setScore(score) {
+    var el = document.getElementById('score');
+    if (window.gsap && !reduce && shownScore !== null) {
+      var o = { v: shownScore }; gsap.to(o, { v: score, duration: .5, ease: 'power2.out', onUpdate: function () { el.textContent = Math.round(o.v); } });
+    } else { el.textContent = score; }
+    shownScore = score;
+  }
+
+  function read() {
+    var a = { has_arrears_record: arrears };
+    RANGES.forEach(function (id) { a[id] = parseFloat(document.getElementById(id).value); });
+    SELECTS.forEach(function (id) { var v = document.getElementById(id).value; a[id] = id === 'term_months' ? parseFloat(v) : v; });
+    return a;
+  }
+  function write(p) {
+    RANGES.concat(SELECTS).forEach(function (id) { document.getElementById(id).value = p[id]; });
+    setArrears(p.has_arrears_record, true);
+  }
+  function setArrears(v, silent) {
+    arrears = v;
+    document.getElementById('arrears_no').setAttribute('aria-pressed', String(v === 'no'));
+    document.getElementById('arrears_yes').setAttribute('aria-pressed', String(v === 'yes'));
+    if (!silent) update();
+  }
+
+  function update() {
+    var a = read(), r = scorer.score(a), c = GRADE_COLORS();
+    RANGES.forEach(function (id) { document.getElementById(id + '_out').textContent = fmt(a[id]) + (id === 'age' || id === 'seniority' ? (a[id] === 1 ? ' yr' : ' yrs') : ''); });
+    setScore(r.score); setNeedle(r.score);
+    var g = document.getElementById('grade'); g.textContent = 'Grade ' + r.grade; g.style.background = c[r.grade];
+    document.getElementById('pd').textContent = (r.pd * 100).toFixed(1) + '%';
+    document.getElementById('ltv').textContent = (r.features.loan_to_value * 100).toFixed(0) + '%';
+    var pti = r.features.payment_to_income;
+    document.getElementById('pti').textContent = Number.isFinite(pti) ? (pti * 100).toFixed(0) + '%' : 'n/a';
+    var d = document.getElementById('decision'), cut = MODEL.cutoff;
+    d.className = 'decision ' + (r.approve ? 'approve' : 'decline');
+    document.getElementById('verdict').textContent = r.approve ? 'Approve' : 'Decline';
+    var rate = MODEL.scorecard.grade_default_rates[r.grade];
+    document.getElementById('decision_text').textContent = (r.approve
+      ? 'Default risk is under the ' + Math.round(cut * 100) + '% cut-off.'
+      : 'Default risk is above the ' + Math.round(cut * 100) + '% cut-off.') +
+      ' In testing, ' + (rate * 100).toFixed(0) + '% of grade ' + r.grade + ' loans defaulted.';
+
+    // Contributions relative to an average applicant, top 6 by size
+    var parts = r.parts.map(function (p) { var base = MODEL.cat_mean && MODEL.cat_mean[p[0]] !== undefined ? MODEL.cat_mean[p[0]] : 0; return [p[0], p[1] - base]; })
+      .sort(function (x, y) { return Math.abs(y[1]) - Math.abs(x[1]); }).slice(0, 6);
+    var maxAbs = 1.6, bars = document.getElementById('bars');
+    if (bars.children.length !== 6) { bars.innerHTML = ''; for (var i = 0; i < 6; i++) bars.insertAdjacentHTML('beforeend', '<div class="bar-row"><span class="name"></span><span class="track"><span class="fill"></span></span></div>'); }
+    parts.forEach(function (p, i) {
+      var row = bars.children[i], v = Math.max(-maxAbs, Math.min(maxAbs, p[1])), w = Math.abs(v) / maxAbs * 50;
+      row.querySelector('.name').textContent = NAMES[p[0]] || p[0];
+      row.title = (p[1] > 0 ? 'Raises' : 'Lowers') + ' risk by ' + Math.abs(p[1]).toFixed(2) + ' log-odds';
+      var f = row.querySelector('.fill');
+      f.style.left = (v >= 0 ? 50 : 50 - w) + '%'; f.style.width = Math.max(w, .6) + '%';
+      f.style.background = v >= 0 ? c.E : c.A;
+    });
+  }
+
+  document.querySelectorAll('[data-preset]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.querySelectorAll('[data-preset]').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+      write(PRESETS[b.dataset.preset]); update();
+    });
+  });
+  document.getElementById('form').addEventListener('input', function () {
+    document.querySelectorAll('[data-preset]').forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
+    update();
+  });
+  document.getElementById('arrears_no').addEventListener('click', function () { setArrears('no'); });
+  document.getElementById('arrears_yes').addEventListener('click', function () { setArrears('yes'); });
+  document.getElementById('form').addEventListener('submit', function (e) { e.preventDefault(); });
+
+  var m = MODEL.metrics;
+  document.getElementById('metrics').innerHTML = [['Test ROC-AUC', m['ROC-AUC'].toFixed(3)], ['Gini', m.Gini.toFixed(2)], ['KS', m.KS.toFixed(2)], ['Brier', m.Brier.toFixed(3)]]
+    .map(function (x) { return '<span class="metric">' + x[0] + ' ' + x[1] + '</span>'; }).join('');
+  document.getElementById('cut_text').textContent = Math.round(MODEL.cutoff * 100) + '%';
+
+  drawGauge(); write(PRESETS.steady); update();
+  if (window.gsap && !reduce) {
+    gsap.from('.intro > *', { y: 18, opacity: 0, duration: .6, stagger: .08, ease: 'power3.out' });
+    gsap.from('.app > .card', { y: 26, opacity: 0, duration: .7, stagger: .12, delay: .15, ease: 'power3.out' });
+  }
+})();
+</script>
+</body>
+</html>
