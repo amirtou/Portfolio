@@ -2,6 +2,8 @@
 
 Predicts the probability that a loan applicant will default (PD), turns it into a lending decision that maximizes expected profit, and converts it into a points-based credit score with risk grades A–E.
 
+**[Try the live demo →](https://amirtou.github.io/Portfolio/credit-risk-demo.html)** Enter an applicant and get a default probability, credit score, grade and decision, with the factors behind it. The demo runs the notebook's fitted logistic regression (test AUC 0.852) directly in the browser.
+
 ![ROC and KS curves](figures/roc_ks.png)
 
 ## Results (held-out test set, 891 loans)
