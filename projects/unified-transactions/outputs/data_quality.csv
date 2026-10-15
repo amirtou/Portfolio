@@ -1,0 +1,8 @@
+check_name,scope,rows_affected,pct_of_scope,action
+Account balance is blank,Checking rows,1000,100.0,Column dropped from the model
+Checking activity on a savings-only customer,Checking rows,357,35.7,Flagged for review; kept in analysis
+Transaction dated before customer joined,All transactions,265,13.3,Flagged; excluded from analysis
+Transaction outside the reporting period,All transactions,12,0.6,Flagged; excluded from 2022-2024 figures
+Zero or negative amount,All transactions,0,0.0,None found
+Transaction with no matching customer,All transactions,0,0.0,None found
+"Duplicate transaction (same customer, date, amount)",All transactions,0,0.0,None found

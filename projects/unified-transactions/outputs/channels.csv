@@ -1,0 +1,4 @@
+channel,transactions,amount,avg_amount,share_of_txns_pct
+ATM,308,730909.0,2373.0,35.6
+Branch,291,732315.0,2517.0,33.6
+Online,266,649994.0,2444.0,30.8

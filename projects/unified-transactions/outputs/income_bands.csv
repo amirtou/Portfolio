@@ -1,0 +1,5 @@
+income_band,customers,card_users,card_adoption_pct,spend_per_card_user
+Under 60k,242,138,57.0,761.0
+60k-90k,246,141,57.3,660.0
+90k-120k,243,133,54.7,757.0
+120k+,269,150,55.8,778.0
