@@ -1,0 +1,6 @@
+segment,customers,avg_recency_days,avg_transactions,total_spend,share_of_spend_pct
+Lapsed (12+ months),279,663.0,1.3,174281.0,42.0
+Champions,63,100.0,2.5,91883.0,22.1
+Loyal,79,210.0,2.4,80646.0,19.4
+"Recent, one-off",72,93.0,1.0,34444.0,8.3
+Cooling,69,268.0,1.0,34174.0,8.2

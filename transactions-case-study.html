@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Unified Transactions Case Study</title>
+<meta name="description" content="Case study: a reconciliation-first pipeline that unifies checking, credit-card and customer data, audits it for quality problems and analyses cash flow and customer activity.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AmirReza Touraji">
+<meta property="og:title" content="Case Study: Unified Customer Transactions | AmirReza Touraji">
+<meta property="og:description" content="2,000 banking transactions unified, audited and reconciled to the dollar. Four data-quality issues caught before they reached a report.">
+<meta property="og:url" content="https://amirtou.github.io/Portfolio/transactions-case-study.html">
+<meta property="og:image" content="https://amirtou.github.io/Portfolio/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500&display=swap">
+<style>
+/* Layout: an audit report. A findings summary up front, then numbered sections that follow the pipeline order: audit, reconcile, analyse. */
+:root {
+  --paper: #f3f6f5; --surface: #ffffff; --ink: #0f1c2b; --muted: #576677; --rule: #d3dcde;
+  --accent: #0b6b4c; --accent-soft: #e1efe9; --down: #b0412d; --down-soft: #f6e4df;
+  --in: #2a78d6; --out: #eb6834;
+  --font-display: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-data: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0b131c; --surface: #121d29; --ink: #e4ebee; --muted: #93a2b0; --rule: #233343;
+    --accent: #44c08f; --accent-soft: #15302a; --down: #e0806c; --down-soft: #3a211c; --in: #3987e5; --out: #d95926; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0b131c; --surface: #121d29; --ink: #e4ebee; --muted: #93a2b0; --rule: #233343;
+  --accent: #44c08f; --accent-soft: #15302a; --down: #e0806c; --down-soft: #3a211c; --in: #3987e5; --out: #d95926; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 16.5px/1.65 var(--font-body); -webkit-font-smoothing: antialiased; }
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+h1, h2, h3 { margin: 0; text-wrap: balance; }
+p { margin: 0; }
+.wrap { max-width: 1040px; margin: 0 auto; padding-inline: 20px; }
+.prose { max-width: 68ch; display: grid; gap: 14px; }
+.eyebrow { font: 500 12px/1.4 var(--font-data); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.num, td.n { font-family: var(--font-data); font-variant-numeric: tabular-nums; }
+
+header { border-bottom: 1px solid var(--rule); padding-top: env(safe-area-inset-top, 0px); }
+.nav { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 14px; }
+.back { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500; }
+.back:hover { color: var(--ink); }
+.brand { font: 600 18px/1 var(--font-display); }
+.theme-btn { border: 1px solid var(--rule); background: var(--surface); color: var(--ink); font: 500 12px/1 var(--font-data); padding: 8px 10px; border-radius: 4px; cursor: pointer; }
+
+.intro { padding-block: 52px 30px; display: grid; gap: 16px; }
+.intro h1 { font: 500 clamp(36px, 5.4vw, 60px)/1.04 var(--font-display); letter-spacing: -.02em; max-width: 18ch; }
+.intro h1 em { color: var(--accent); }
+.intro .lede { color: var(--muted); font-size: 18px; max-width: 62ch; }
+.meta { display: flex; flex-wrap: wrap; gap: 8px 22px; font: 400 13px/1.5 var(--font-data); color: var(--muted); }
+.meta b { color: var(--ink); font-weight: 500; }
+
+.findings { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; padding-bottom: 48px; }
+@media (max-width: 820px) { .findings { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.finding { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 18px; display: grid; gap: 6px; align-content: start; }
+.finding .big { font: 500 32px/1 var(--font-data); font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+.finding .big.good { color: var(--accent); }
+.finding .big.bad { color: var(--down); }
+.finding p { font-size: 14px; color: var(--muted); }
+
+section.block { border-top: 1px solid var(--rule); padding-block: 52px; }
+.sec-head { display: grid; gap: 8px; margin-bottom: 22px; }
+.sec-head h2 { font: 500 clamp(28px, 3.6vw, 38px)/1.12 var(--font-display); letter-spacing: -.015em; }
+.figure { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 20px; margin-block: 24px; overflow-x: auto; }
+.figure figcaption { font: 400 12.5px/1.4 var(--font-data); color: var(--muted); margin-top: 10px; }
+figure { margin: 0; }
+.chart-svg { display: block; width: 100%; min-width: 360px; height: auto; }
+.chart-svg.wide { min-width: 560px; }
+.chart-svg .lbl { font: 400 13px var(--font-body); fill: var(--ink); }
+.chart-svg .val, .chart-svg .tick { font: 400 12px var(--font-data); fill: var(--muted); }
+.chart-svg .axis { stroke: var(--muted); stroke-width: 1; }
+.chart-svg .grid { stroke: var(--rule); stroke-width: 1; }
+.chart-svg .bar-bad { fill: var(--down); }
+.chart-svg .bar-good { fill: var(--in); }
+.chart-svg .line-in { stroke: var(--in); stroke-width: 2.2; }
+.chart-svg .line-out { stroke: var(--out); stroke-width: 2.2; }
+.chart-svg .dot-in { fill: var(--in); stroke: var(--surface); stroke-width: 2; }
+.chart-svg .dot-out { fill: var(--out); stroke: var(--surface); stroke-width: 2; }
+.chart-svg .gap { fill: var(--out); opacity: .09; }
+.legend { display: flex; flex-wrap: wrap; gap: 18px; font-size: 13.5px; margin-bottom: 10px; }
+.legend span::before { content: ""; display: inline-block; width: 14px; height: 3px; border-radius: 2px; margin-right: 7px; vertical-align: middle; background: currentColor; }
+.legend .in { color: var(--in); } .legend .out { color: var(--out); }
+.legend b { color: var(--ink); font-weight: 400; }
+
+.table-wrap { overflow-x: auto; margin-block: 20px; border: 1px solid var(--rule); border-radius: 8px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; min-width: 560px; }
+th, td { text-align: left; padding: 11px 14px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font: 500 11.5px/1.3 var(--font-data); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); background: var(--paper); }
+td.n, th.n { text-align: right; }
+tr:last-child td { border-bottom: 0; }
+.pill { display: inline-block; font: 500 12px/1 var(--font-data); padding: 5px 8px; border-radius: 999px; white-space: nowrap; }
+.pill.ok { background: var(--accent-soft); color: var(--accent); }
+.pill.warn { background: var(--down-soft); color: var(--down); }
+
+.pipeline { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; margin-block: 24px; counter-reset: step; }
+@media (max-width: 820px) { .pipeline { grid-template-columns: 1fr; } }
+.step { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 14px; display: grid; gap: 4px; align-content: start; position: relative; }
+.step .k { font: 500 11px/1.3 var(--font-data); letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+.step strong { font: 600 16px/1.3 var(--font-display); }
+.step p { font-size: 13.5px; color: var(--muted); }
+.callout { border-left: 3px solid var(--down); background: var(--down-soft); padding: 14px 18px; border-radius: 0 8px 8px 0; margin-block: 20px; max-width: 68ch; }
+.callout strong { color: var(--down); }
+ul.points { margin: 0; padding-left: 20px; display: grid; gap: 8px; max-width: 68ch; }
+.two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; }
+@media (max-width: 820px) { .two { grid-template-columns: 1fr; } }
+.two .figure { margin-block: 0; }
+.skills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.skills span { font: 400 13px/1 var(--font-data); padding: 8px 10px; border: 1px solid var(--rule); border-radius: 4px; color: var(--muted); }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.btn { display: inline-flex; text-decoration: none; font: 500 15px/1 var(--font-body); padding: 13px 18px; border-radius: 4px; border: 1px solid var(--ink); color: var(--ink); }
+.btn.primary { background: var(--ink); color: var(--paper); }
+.btn:hover { border-color: var(--accent); }
+.note { font-size: 13.5px; color: var(--muted); margin-top: 18px; max-width: 70ch; }
+footer { border-top: 1px solid var(--rule); padding-block: 22px; color: var(--muted); font: 400 12px/1.5 var(--font-data); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; }
+</style>
+</head>
+<body>
+<header>
+  <nav class="wrap nav" aria-label="Main">
+    <a class="back" href="./#projects">← Back to portfolio</a>
+    <span class="brand">Case study</span>
+    <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch colour theme">Dark</button>
+  </nav>
+</header>
+
+<main>
+  <section class="wrap intro">
+    <p class="eyebrow">Case study · Banking data pipeline</p>
+    <h1>Reconcile first, <em>then</em> analyse.</h1>
+    <p class="lede">I combined checking-account, credit-card and customer files into one trusted dataset. Before any analysis, I audited it for quality problems and proved with control totals that every row and every dollar made it through. Then I answered the business questions: where money goes, and which customers have gone quiet.</p>
+    <p class="meta"><span><b>Stack</b> Python · SQL (DuckDB) · Power BI</span><span><b>Data</b> 2,000 transactions · 1,000 customers · 2022–2024</span><span><b>Sources</b> 3 files</span></p>
+  </section>
+
+  <div class="wrap findings">
+    <div class="finding"><span class="big good">100%</span><p>of rows and dollars reconciled from source to dashboard</p></div>
+    <div class="finding"><span class="big bad">265</span><p>transactions dated before the customer had joined, caught and excluded</p></div>
+    <div class="finding"><span class="big bad">1,000</span><p>credit-card rows reaching the dashboard with no transaction ID, found and fixed</p></div>
+    <div class="finding"><span class="big">31 / 36</span><p>months where outflows exceeded deposits</p></div>
+  </div>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="sec-head"><p class="eyebrow">The problem</p><h2>Three systems, one question</h2></div>
+      <div class="prose">
+        <p>Checking activity, card activity and customer details lived in three separate files. Answering "how much money comes in versus goes out?" means combining them, and that is where errors creep in.</p>
+        <ul class="points">
+          <li><strong>Colliding IDs.</strong> Both transaction files number their rows from 1, so a naive merge produces duplicate keys.</li>
+          <li><strong>Mixed meanings.</strong> Deposits, withdrawals and card purchases all share one "Amount" column, so adding it up gives a number with no financial meaning.</li>
+          <li><strong>Silent data problems</strong> that only surface once a report is already wrong.</li>
+        </ul>
+      </div>
+      <div class="pipeline">
+        <div class="step"><span class="k">Step 0</span><strong>Stage</strong><p>Load the raw files into typed tables, unchanged.</p></div>
+        <div class="step"><span class="k">Step 1</span><strong>Model</strong><p>Star schema with a signed amount and flow direction on every row.</p></div>
+        <div class="step"><span class="k">Step 2</span><strong>Audit</strong><p>Seven data-quality checks; problems flagged, never deleted.</p></div>
+        <div class="step"><span class="k">Step 3</span><strong>Reconcile</strong><p>Control totals from source to model to dashboard.</p></div>
+        <div class="step"><span class="k">Step 4</span><strong>Analyse</strong><p>Cash flow, card spending, RFM segments, inactivity.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="sec-head"><p class="eyebrow">1 · Data-quality audit</p><h2>Four problems no report would have shown</h2></div>
+      <figure class="figure"><svg viewBox="0 0 820 152" role="img" aria-label="Rows affected by each data-quality issue" class="chart-svg wide">
+<text x="348" y="27" text-anchor="end" class="lbl">Account balance is blank</text>
+<rect x="360" y="14" width="290.0" height="18" rx="3" class="bar-bad"/>
+<text x="658.0" y="27" class="val">1,000 · 100.0%</text>
+<text x="348" y="61" text-anchor="end" class="lbl">Checking activity on a savings-only customer</text>
+<rect x="360" y="48" width="103.5" height="18" rx="3" class="bar-bad"/>
+<text x="471.5" y="61" class="val">357 · 35.7%</text>
+<text x="348" y="95" text-anchor="end" class="lbl">Transaction dated before customer joined</text>
+<rect x="360" y="82" width="76.8" height="18" rx="3" class="bar-bad"/>
+<text x="444.9" y="95" class="val">265 · 13.3%</text>
+<text x="348" y="129" text-anchor="end" class="lbl">Transaction outside the reporting period</text>
+<rect x="360" y="116" width="3.5" height="18" rx="3" class="bar-bad"/>
+<text x="371.5" y="129" class="val">12 · 0.6%</text>
+<line x1="360" y1="8" x2="360" y2="144" class="axis"/></svg><figcaption>Rows affected by each check · % of the rows the check applies to</figcaption></figure>
+      <div class="prose">
+        <ul class="points">
+          <li><strong>One in eight transactions has an impossible date</strong>: it happened before the customer opened their account. In a real bank that points to a migration error or a wrong join date, and it goes back to the data owner before anything is published.</li>
+          <li><strong>More than a third of checking activity belongs to customers recorded as savings-only.</strong> Either the product field is out of date or transactions are on the wrong customer.</li>
+          <li><strong>The balance column is completely empty</strong>, so no balance-based metric can be trusted from this extract.</li>
+          <li><strong>Twelve card transactions fall after the reporting period</strong> and are excluded from the 2022–2024 figures.</li>
+        </ul>
+        <p>Duplicate, orphan and zero-amount checks all passed. Every problem row stays in the model with a flag, so each excluded number can be traced back to its source.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="sec-head"><p class="eyebrow">2 · Reconciliation</p><h2>Every row and every dollar, accounted for</h2></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Source</th><th class="n">Source rows</th><th class="n">Model rows</th><th class="n">Dashboard rows</th><th class="n">Source amount</th><th class="n">Model amount</th><th class="n">Dashboard amount</th><th>Status</th></tr></thead>
+          <tbody><tr><td>Checking</td><td class="n">1,000</td><td class="n">1,000</td><td class="n">1,000</td><td class="n">2,438,671</td><td class="n">2,438,671</td><td class="n">2,438,671</td><td><span class="pill ok">✓ Reconciled</span></td></tr>
+<tr><td>Credit Card</td><td class="n">1,000</td><td class="n">1,000</td><td class="n">1,000</td><td class="n">488,902</td><td class="n">488,902</td><td class="n">488,902</td><td><span class="pill ok">✓ Reconciled</span></td></tr></tbody>
+        </table>
+      </div>
+      <div class="callout"><strong>The first version failed this check.</strong> The original merge renamed <code>Card_ID</code> when the column was actually <code>Card_Id</code>, so all 1,000 credit-card rows reached the dashboard with no transaction ID. Fixing it made the table balance, and the check now runs on every pipeline run.</div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="sec-head"><p class="eyebrow">3 · Cash flow</p><h2>Outflows beat deposits in 31 of 36 months</h2></div>
+      <figure class="figure">
+        <div class="legend"><span class="in"><b>Inflow (deposits)</b></span><span class="out"><b>Outflow (withdrawals + card spend)</b></span></div>
+        <svg viewBox="0 0 760 300" role="img" aria-label="Monthly inflow versus outflow, 2022 to 2024" class="chart-svg wide">
+<line x1="54" y1="266.0" x2="744" y2="266.0" class="grid"/><text x="46" y="270.0" text-anchor="end" class="tick">0k</text>
+<line x1="54" y1="216.0" x2="744" y2="216.0" class="grid"/><text x="46" y="220.0" text-anchor="end" class="tick">10k</text>
+<line x1="54" y1="166.0" x2="744" y2="166.0" class="grid"/><text x="46" y="170.0" text-anchor="end" class="tick">20k</text>
+<line x1="54" y1="116.0" x2="744" y2="116.0" class="grid"/><text x="46" y="120.0" text-anchor="end" class="tick">30k</text>
+<line x1="54" y1="66.0" x2="744" y2="66.0" class="grid"/><text x="46" y="70.0" text-anchor="end" class="tick">40k</text>
+<line x1="54" y1="16.0" x2="744" y2="16.0" class="grid"/><text x="46" y="20.0" text-anchor="end" class="tick">50k</text>
+<text x="54.0" y="288" text-anchor="middle" class="tick">Jan 2022</text>
+<text x="172.3" y="288" text-anchor="middle" class="tick">Jul 2022</text>
+<text x="290.6" y="288" text-anchor="middle" class="tick">Jan 2023</text>
+<text x="408.9" y="288" text-anchor="middle" class="tick">Jul 2023</text>
+<text x="527.1" y="288" text-anchor="middle" class="tick">Jan 2024</text>
+<text x="645.4" y="288" text-anchor="middle" class="tick">Jul 2024</text>
+<polygon points="54.0,161.9 73.7,152.9 93.4,104.0 113.1,116.1 132.9,149.1 152.6,110.0 172.3,174.5 192.0,70.8 211.7,202.3 231.4,161.2 251.1,182.8 270.9,115.7 290.6,59.3 310.3,68.9 330.0,145.5 349.7,180.8 369.4,102.3 389.1,127.7 408.9,99.7 428.6,42.6 448.3,103.6 468.0,191.0 487.7,99.9 507.4,134.3 527.1,37.3 546.9,82.0 566.6,71.1 586.3,68.8 606.0,151.9 625.7,91.8 645.4,93.3 665.1,24.3 684.9,32.5 704.6,124.2 724.3,67.0 744.0,93.4 744.0,42.9 724.3,104.3 704.6,174.9 684.9,69.3 665.1,106.0 645.4,156.1 625.7,159.9 606.0,83.9 586.3,114.1 566.6,209.4 546.9,162.9 527.1,140.9 507.4,199.4 487.7,233.5 468.0,244.8 448.3,143.6 428.6,196.6 408.9,121.5 389.1,145.2 369.4,165.8 349.7,162.9 330.0,162.6 310.3,181.1 290.6,150.3 270.9,156.7 251.1,229.9 231.4,173.1 211.7,165.3 192.0,160.8 172.3,204.6 152.6,194.9 132.9,191.9 113.1,206.6 93.4,200.8 73.7,191.1 54.0,158.9" class="gap"/>
+<polyline points="54.0,158.9 73.7,191.1 93.4,200.8 113.1,206.6 132.9,191.9 152.6,194.9 172.3,204.6 192.0,160.8 211.7,165.3 231.4,173.1 251.1,229.9 270.9,156.7 290.6,150.3 310.3,181.1 330.0,162.6 349.7,162.9 369.4,165.8 389.1,145.2 408.9,121.5 428.6,196.6 448.3,143.6 468.0,244.8 487.7,233.5 507.4,199.4 527.1,140.9 546.9,162.9 566.6,209.4 586.3,114.1 606.0,83.9 625.7,159.9 645.4,156.1 665.1,106.0 684.9,69.3 704.6,174.9 724.3,104.3 744.0,42.9" class="line-in" fill="none"/>
+<polyline points="54.0,161.9 73.7,152.9 93.4,104.0 113.1,116.1 132.9,149.1 152.6,110.0 172.3,174.5 192.0,70.8 211.7,202.3 231.4,161.2 251.1,182.8 270.9,115.7 290.6,59.3 310.3,68.9 330.0,145.5 349.7,180.8 369.4,102.3 389.1,127.7 408.9,99.7 428.6,42.6 448.3,103.6 468.0,191.0 487.7,99.9 507.4,134.3 527.1,37.3 546.9,82.0 566.6,71.1 586.3,68.8 606.0,151.9 625.7,91.8 645.4,93.3 665.1,24.3 684.9,32.5 704.6,124.2 724.3,67.0 744.0,93.4" class="line-out" fill="none"/>
+<circle cx="744.0" cy="42.9" r="4" class="dot-in"/><circle cx="744.0" cy="93.4" r="4" class="dot-out"/>
+</svg>
+        <figcaption>Monthly totals, 2022–2024 · transfers excluded because the source does not record their direction</figcaption>
+      </figure>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Year</th><th class="n">Transactions</th><th class="n">Inflow</th><th class="n">Outflow</th><th class="n">Net flow</th><th class="n">Outflow growth</th></tr></thead>
+          <tbody>
+            <tr><td>2022</td><td class="n">481</td><td class="n">191,492</td><td class="n">298,113</td><td class="n">−106,621</td><td class="n">—</td></tr>
+            <tr><td>2023</td><td class="n">571</td><td class="n">216,951</td><td class="n">367,267</td><td class="n">−150,316</td><td class="n">+23.2%</td></tr>
+            <tr><td>2024</td><td class="n">671</td><td class="n">333,470</td><td class="n">450,875</td><td class="n">−117,405</td><td class="n">+22.8%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="prose"><p>Deposits jumped 54% in 2024 and narrowed the gap, while outflows kept growing at about 23% a year. Part of that growth comes from new customers joining during the period, so the next step is a per-customer view.</p></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="sec-head"><p class="eyebrow">4 · Card customers</p><h2>42% of card spend came from customers who have gone quiet</h2></div>
+      <div class="two">
+        <figure class="figure"><svg viewBox="0 0 440 216" role="img" aria-label="Share of card spend by RFM segment" class="chart-svg">
+<text x="160" y="27" text-anchor="end" class="lbl">Lapsed (12+ months)</text>
+<rect x="172" y="14" width="118.0" height="18" rx="3" class="bar-good"/>
+<text x="298.0" y="27" class="val">42% · 279 cust.</text>
+<text x="160" y="67" text-anchor="end" class="lbl">Champions</text>
+<rect x="172" y="54" width="62.1" height="18" rx="3" class="bar-good"/>
+<text x="242.1" y="67" class="val">22% · 63 cust.</text>
+<text x="160" y="107" text-anchor="end" class="lbl">Loyal</text>
+<rect x="172" y="94" width="54.5" height="18" rx="3" class="bar-good"/>
+<text x="234.5" y="107" class="val">19% · 79 cust.</text>
+<text x="160" y="147" text-anchor="end" class="lbl">Recent, one-off</text>
+<rect x="172" y="134" width="23.3" height="18" rx="3" class="bar-good"/>
+<text x="203.3" y="147" class="val">8% · 72 cust.</text>
+<text x="160" y="187" text-anchor="end" class="lbl">Cooling</text>
+<rect x="172" y="174" width="23.0" height="18" rx="3" class="bar-good"/>
+<text x="203.0" y="187" class="val">8% · 69 cust.</text>
+<line x1="172" y1="8" x2="172" y2="208" class="axis"/></svg><figcaption>Share of card spend by RFM segment · at 31 Dec 2024</figcaption></figure>
+        <figure class="figure"><svg viewBox="0 0 420 256" role="img" aria-label="Card spend by category" class="chart-svg">
+<text x="118" y="27" text-anchor="end" class="lbl">Entertainment</text>
+<rect x="130" y="14" width="160.0" height="18" rx="3" class="bar-good"/>
+<text x="298.0" y="27" class="val">18.1%</text>
+<text x="118" y="67" text-anchor="end" class="lbl">Travel</text>
+<rect x="130" y="54" width="159.5" height="18" rx="3" class="bar-good"/>
+<text x="297.5" y="67" class="val">18.1%</text>
+<text x="118" y="107" text-anchor="end" class="lbl">Dining</text>
+<rect x="130" y="94" width="149.4" height="18" rx="3" class="bar-good"/>
+<text x="287.4" y="107" class="val">16.9%</text>
+<text x="118" y="147" text-anchor="end" class="lbl">Online Shopping</text>
+<rect x="130" y="134" width="142.5" height="18" rx="3" class="bar-good"/>
+<text x="280.5" y="147" class="val">16.2%</text>
+<text x="118" y="187" text-anchor="end" class="lbl">Utilities</text>
+<rect x="130" y="174" width="136.3" height="18" rx="3" class="bar-good"/>
+<text x="274.3" y="187" class="val">15.5%</text>
+<text x="118" y="227" text-anchor="end" class="lbl">Groceries</text>
+<rect x="130" y="214" width="133.9" height="18" rx="3" class="bar-good"/>
+<text x="271.9" y="227" class="val">15.2%</text>
+<line x1="130" y1="8" x2="130" y2="248" class="axis"/></svg><figcaption>Card spend by category · share of spend · average ticket 454–504</figcaption></figure>
+      </div>
+      <div class="prose" style="margin-top:22px">
+        <ul class="points">
+          <li><strong>279 lapsed customers</strong>, with no card purchase in over a year, account for 42% of historical card spend. They are the clearest re-engagement target.</li>
+          <li><strong>63 "Champions"</strong>, 11% of card users, produce 22% of spend. They are the customers to protect.</li>
+          <li><strong>Purchases are infrequent.</strong> The median gap between a customer's card purchases is 256 days, so a quiet quarter is not yet a churn signal.</li>
+          <li>Spending is spread almost evenly across categories, and card adoption is flat across income bands (55–57%).</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="sec-head"><p class="eyebrow">5 · Dashboard review</p><h2>What I'd fix in the Power BI report</h2></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Measure</th><th>Issue</th><th>Fix</th></tr></thead>
+          <tbody>
+            <tr><td>Total Amount</td><td><span class="pill warn">Misleading</span> Adds deposits, withdrawals and card spend together</td><td>Split into Inflow, Outflow and Net Flow using the model's flow direction</td></tr>
+            <tr><td>Credit Utilization</td><td><span class="pill warn">Always blank</span> Divides by a Credit Limit column that is not in the data</td><td>Remove it, or source credit limits from the card system</td></tr>
+            <tr><td>Data source</td><td><span class="pill warn">Fragile</span> Hard-coded to a file path on one computer</td><td>Use a relative path or a parameter</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="skills"><span>Star-schema modelling</span><span>Reconciliation &amp; control totals</span><span>Data-quality rules</span><span>SQL window functions</span><span>RFM segmentation</span><span>Cash-flow analysis</span><span>Power BI / DAX review</span></div>
+      <div class="cta">
+        <a class="btn primary" href="https://github.com/amirtou/Portfolio/tree/main/projects/unified-transactions">View the SQL and code</a>
+        <a class="btn" href="./#projects">More projects</a>
+      </div>
+      <p class="note">The dataset is synthetic: realistic generated records, not real customers. The pipeline runs end to end with one command and regenerates every figure on this page.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© 2026 AmirReza Touraji</span><a href="./">amirtou.github.io/Portfolio</a></div>
+</footer>
+
+<script>
+(function () {
+  var root = document.documentElement, btn = document.getElementById('themeBtn');
+  function theme() { var t = root.getAttribute('data-theme'); return t || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); }
+  function label() { btn.textContent = theme() === 'dark' ? 'Light' : 'Dark'; }
+  try { var s = localStorage.getItem('theme'); if (s) root.setAttribute('data-theme', s); } catch (e) {}
+  label();
+  btn.addEventListener('click', function () {
+    var n = theme() === 'dark' ? 'light' : 'dark'; root.setAttribute('data-theme', n);
+    try { localStorage.setItem('theme', n); } catch (e) {}
+    label();
+  });
+})();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function () {
+  if (!window.gsap || !window.ScrollTrigger || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.from('.intro > *', { y: 18, opacity: 0, duration: .6, stagger: .08, ease: 'power3.out' });
+  gsap.from('.finding', { y: 20, opacity: 0, duration: .6, stagger: .08, delay: .25, ease: 'power3.out' });
+  gsap.utils.toArray('.chart-svg').forEach(function (svg) {
+    var st = { trigger: svg, start: 'top 85%' };
+    gsap.from(svg.querySelectorAll('rect'), { scaleX: 0, transformOrigin: '0% 50%', duration: .8, stagger: .07, ease: 'power3.out', scrollTrigger: st });
+    var lines = svg.querySelectorAll('polyline');
+    lines.forEach(function (l) {
+      var len = l.getTotalLength(); l.style.strokeDasharray = len; l.style.strokeDashoffset = len;
+      gsap.to(l, { strokeDashoffset: 0, duration: 1.6, ease: 'power2.inOut', scrollTrigger: st, onComplete: function () { l.style.strokeDasharray = 'none'; } });
+    });
+  });
+  // Safety net: after a very fast scroll, play any reveal whose chart is already on screen
+  ScrollTrigger.addEventListener('scrollEnd', function () {
+    ScrollTrigger.getAll().forEach(function (t) {
+      if (t.animation && t.animation.progress() === 0 && t.trigger.getBoundingClientRect().top < innerHeight) t.animation.play();
+    });
+  });
+})();
+</script>
+</body>
+</html>

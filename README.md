@@ -21,7 +21,7 @@ Predicts the probability that a loan applicant will default and turns it into a 
 | Project | Summary | Key result | Stack |
 |---|---|---|---|
 | [Credit Risk Model](projects/credit-risk-model) | Loan default prediction, profit-based approval policy and credit scorecard | Gini 0.71 | Python, scikit-learn, LightGBM, SHAP |
-| [Unified Customer Transactions](projects/unified-transactions) | Merges checking and credit-card data with customer profiles, then analyses it in Power BI and SQL | 2,000 transactions unified | Python, SQL, Power BI |
+| [Unified Customer Transactions](projects/unified-transactions) · [case study](https://amirtou.github.io/Portfolio/transactions-case-study.html) | Reconciliation-first pipeline: unifies checking, card and customer data into a star schema, audits data quality and reconciles source to dashboard, then analyses cash flow and segments | 100% reconciled · 4 data issues caught | Python, SQL (DuckDB), Power BI |
 | [California House Price Model](projects/house-price-predictor) | Regression on census housing data | R² 0.58 → 0.81 | Python, scikit-learn |
 | [Vaccination Pattern Clustering](projects/covid-vaccination-analysis) | K-means, PCA and regression pipeline (simulated data) | 3 country clusters | Python, scikit-learn, SciPy |
 | [RANSAC Image Stitching](projects/ransac-image-stitching) | Feature matching and robust transform estimation for panoramas | Affine and homography stitching | Python, OpenCV |
@@ -46,7 +46,7 @@ Each project folder has its own README with results, method and run instructions
 ├── index.html                     # Portfolio website (served by GitHub Pages)
 └── projects/
     ├── credit-risk-model/         # Notebook, data, figures, requirements
-    ├── unified-transactions/      # Notebook, CSVs, SQL scripts, Power BI template
+    ├── unified-transactions/      # SQL pipeline, notebook, CSVs, Power BI template
     ├── house-price-predictor/     # Notebook, requirements
     ├── covid-vaccination-analysis/# Python script, requirements
     └── ransac-image-stitching/    # Notebook, requirements
